@@ -1,305 +1,312 @@
 import random
+import re
+
+import dotenv
+from openai import OpenAI
+
+
+dotenv.load_dotenv()
 
 
 titres = [
     "Potion",
+    "Concoction",
+    "Fiole",
+    "Préparation",
     "Élixir",
     "Breuvage",
-    "Fiole",
     "Philtre",
     "Tonique",
-    "Préparation",
     "Ichor",
     "Jus",
-    "Concoction",
 ]
 
 conteneurs = [
-    "Une bouteille en verre lisse et conique.",
-    "Une bouteille en verre carrée.",
-    "Une gourde en cuir pas tout à fait étanche.",
-    "Une fiole en pierre.",
-    "Un thermos en métal.",
-    "Une seringue en verre.",
-    "Une petite fiole médicale.",
-    "Une bouteille de la taille d'un shot.",
-    "Une grande bouteille en métal.",
-    "Un cornet avec un bouchon.",
-    "Une bouteille en verre très ornée.",
-    "Une bouteille en forme de diamant.",
-    "Une longue bouteille à vin translucide.",
-    "Une bouteille de bière translucide.",
-    "Une pochette en cuir.",
-    "Un vaporisateur type inhalateur.",
-    "Une bouteille colorée.",
-    "Une fiole en os.",
-    "Une petite fiole en métal.",
-    "Une grande bouteille pour plusieurs gorgées."
+    "Une bouteille en verre lisse et conique",
+    "Une bouteille en verre carrée",
+    "Une gourde en cuir pas tout à fait étanche",
+    "Une fiole en pierre",
+    "Un thermos en métal",
+    "Une seringue en verre",
+    "Une petite fiole médicale",
+    "Une bouteille de la taille d'un shot",
+    "Une grande bouteille en métal",
+    "Un cornet avec un bouchon",
+    "Une bouteille en verre très ornée",
+    "Une bouteille en forme de diamant",
+    "Une longue bouteille à vin translucide",
+    "Une bouteille de bière translucide",
+    "Une pochette en cuir",
+    "Un vaporisateur type inhalateur",
+    "Une bouteille colorée",
+    "Une fiole en os",
+    "Une petite fiole en métal",
+    "Une grande bouteille pour plusieurs gorgées",
 ]
 
 apparences_principales = [
-    "Transparente",
-    "Bleue",
-    "Verte", 
+    "Transparent",
+    "Bleu",
+    "Vert",
     "Rouge",
     "Vert pâle",
     "Rose",
     "Bleu clair",
-    "Blanche",
-    "Noire",
+    "Blanc",
+    "Noir",
     "Gris foncé",
     "Gris clair",
     "Jaune",
     "Orange",
-    "Dorée",
+    "Doré",
     "Orange",
     "Bronze",
     "Métallique",
-    "Violette",
+    "Violet",
     "Marron",
-    "Rouge foncé"
+    "Rouge foncé",
 ]
 
 apparences_avec = [
-    "Des éclats de couleur.",
-    "Des tourbillons de couleur.",
-    "Des bulles pétillantes.",
-    "Des bulles en suspension.",
-    "Un morceau d'os flottant dedans.",
-    "Des feuilles et des fleurs à l'intérieur.",
-    "Deux liquides qui se séparent.",
-    "Une lueur vive.",
-    "Une lueur douce.",
-    "Des rayures de couleur.",
-    "De la translucidité.",
-    "Une opacité trouble.",
-    "Du sang à l'intérieur.",
-    "De la terre flottant dedans.",
-    "Des morceaux de métal à l'intérieur.",
-    "Des restes de créature tuée.",
-    "De la vapeur qui s'en dégage.",
-    "Un visage dans le liquide.",
-    "Un liquide en mouvement constant.",
-    "Une chaleur constante."
+    "Des éclats de couleur",
+    "Des tourbillons de couleur",
+    "Des bulles pétillantes",
+    "Des bulles en suspension",
+    "Un morceau d'os flottant dedans",
+    "Des feuilles et des fleurs à l'intérieur",
+    "Deux liquides qui se séparent",
+    "Une lueur vive",
+    "Une lueur douce",
+    "Des rayures de couleur",
+    "De la translucidité",
+    "Une opacité trouble",
+    "Du sang à l'intérieur",
+    "De la terre flottant dedans",
+    "Des morceaux de métal à l'intérieur",
+    "Des restes de créature tuée",
+    "De la vapeur qui s'en dégage",
+    "Un visage dans le liquide",
+    "Un liquide en mouvement constant",
+    "Une chaleur constante",
 ]
 
 textures = [
-    "Épaisse et boueuse.",
-    "Fine et aqueuse.",
-    "Aérée et pétillante.",
-    "Visqueuse.",
-    "Presque solide.",
-    "Huileuse.",
-    "Grumeleuse.",
-    "Granuleuse.",
-    "Laiteuse.",
-    "Presque gazeuse.",
+    "Épais et boueux",
+    "Fin et aqueux",
+    "Aéré et pétillant",
+    "Visqueux",
+    "Presque solide",
+    "Huileux",
+    "Grumeleux",
+    "Granuleux",
+    "Laiteux",
+    "Presque gazeux",
 ]
 
 gouts_odeurs = [
-    "Rien du tout.",
-    "Soufre.",
-    "Air frais.",
-    "Cookies fraîchement cuits.",
-    "Fleurs.",
-    "Viande pourrie.",
-    "Œuf.",
-    "Œufs pourris.",
-    "Pain frais.",
-    "Sang.",
-    "Chez soi.",
-    "Vomi.",
-    "Ail.",
-    "Fruit.",
-    "Chocolat.",
-    "Bière.",
-    "Fumée.",
-    "Bois.",
-    "Mort.",
-    "Orc.",
-    "Chien mouillé.",
-    "Gobelin mouillé.",
-    "Parfum.",
-    "Parfum bon marché.",
-    "Musc.",
-    "Déchets.",
-    "Sable.",
-    "La forêt.",
-    "Noix.",
-    "Acide.",
-    "Épicé.",
-    "Mentholé.",
-    "Produits chimiques.",
-    "Terre.",
-    "Quelque chose de mauvais mais amélioré pour avoir meilleur goût.",
-    "Alcool.",
-    "Sucre.",
-    "Une grotte humide.",
-    "Étrange.",
-    "Indescriptible mais agréable.",
-    "Indescriptible mais horrible.",
-    "Pluie.",
-    "Médical.",
-    "Bacon.",
-    "Café.",
-    "Herbe coupée.",
-    "Vanille.",
-    "La mer.",
-    "Viande rôtie.",
-    "Festif.",
-    "Lavande.",
-    "Lilas et groseilles.",
-    "Un bébé frais.",
-    "Une nouvelle voiture.",
-    "Agrumes.",
-    "Cuir.",
-    "Métal.",
-    "Une forge.",
-    "Gâteau frais.",
-    "Peinture.",
-    "Vin.",
-    "Cirage.",
-    "Fromage.",
-    "Poisson.",
-    "Compost.",
-    "Les égouts.",
-    "Pommes.",
-    "Huiles sacrées.",
-    "Huile de massage.",
-    "Un bordel.",
-    "Vieux fruits.",
-    "Roses.",
-    "Quelque chose qui évoque des souvenirs.",
-    "Pain d'épice.",
-    "Cannelle.",
-    "Bonbons.",
-    "Vapeurs.",
-    "Écorce.",
-    "Poulet.",
-    "Bœuf.",
-    "Chair humaine.",
-    "Poudre à canon.",
-    "Une tempête.",
-    "Le succès.",
-    "Or.",
-    "Mayonnaise.",
-    "Barbecue.",
-    "Sel.",
-    "Poivre.",
-    "Épices aromatiques.",
-    "Punch aux fruits.",
-    "Eau.",
-    "Eau fraîche.",
-    "Eau stagnante.",
-    "Boue.",
-    "Une couleur.",
-    "Musique.",
-    "La fin du monde.",
-    "Magiquement la pire chose pour vous.",
-    "Magiquement la chose la plus désirable pour vous.",
+    "Rien du tout",
+    "Le soufre",
+    "L'air frais",
+    "Les cookies fraîchement cuits",
+    "Les fleurs",
+    "La viande pourrie",
+    "Les œufs",
+    "Les œufs pourris",
+    "Le pain frais",
+    "Le sang",
+    "Chez soi",
+    "Le vomit",
+    "L'ail",
+    "Le fruit",
+    "Le chocolat",
+    "La bière",
+    "La fumée",
+    "Le bois",
+    "La mort",
+    "L'orc",
+    "Le chien mouillé",
+    "Le gobelin mouillé",
+    "Le parfum",
+    "Le parfum bon marché",
+    "Le musc",
+    "Les déchets",
+    "Le sable",
+    "La forêt",
+    "Les noix",
+    "L'acide",
+    "Les épices",
+    "Mentholé",
+    "Les produits chimiques",
+    "La terre",
+    "Quelque chose de mauvais mais amélioré pour avoir meilleur goût",
+    "L'alcool",
+    "Le sucre",
+    "Une grotte humide",
+    "Étrange",
+    "Indescriptible mais agréable",
+    "Indescriptible mais horrible",
+    "La pluie",
+    "Médical",
+    "Le bacon",
+    "Le café",
+    "L'herbe coupée",
+    "La vanille",
+    "La mer",
+    "La viande rôtie",
+    "Festif",
+    "La lavande",
+    "Le lilas et les groseilles",
+    "Un bébé frais",
+    "Une nouvelle voiture",
+    "Les agrumes",
+    "Le cuir",
+    "Le métal",
+    "Une forge",
+    "Le gâteau frais",
+    "La peinture",
+    "Le vin",
+    "Le cirage",
+    "Le fromage",
+    "Le poisson",
+    "Le compost",
+    "Les égouts",
+    "Les pommes",
+    "Les huiles sacrées",
+    "L'huile de massage",
+    "Un bordel",
+    "Les vieux fruits",
+    "Les roses",
+    "Quelque chose qui évoque des souvenirs",
+    "Le pain d'épice",
+    "La cannelle",
+    "Les bonbons",
+    "Les vapeurs",
+    "L'écorce",
+    "Le poulet",
+    "Le bœuf",
+    "La chair humaine",
+    "La poudre à canon",
+    "Une tempête",
+    "Le succès",
+    "L'or",
+    "La mayonnaise",
+    "Le barbecue",
+    "Le sel",
+    "Le poivre",
+    "Les épices aromatiques",
+    "Le punch aux fruits",
+    "L'eau",
+    "L'eau fraîche",
+    "L'eau stagnante",
+    "La boue",
+    "Une couleur",
+    "La musique",
+    "La fin du monde",
+    "Magiquement la pire chose pour vous",
+    "Magiquement la chose la plus désirable pour vous",
 ]
 
 etiquettes = [
-    "Son nom et son titre en lettres majuscules.",
-    "Sa description en elfique orné.",
-    "Sa description en elfique avec une histoire mythique pertinente.",
-    "Sa description en nain.",
-    "Des runes naines.",
-    "Sa description en gnome.",
-    "Des diagrammes gnomes pour son utilisation.",
-    "Les mots \"À UTILISER UNIQUEMENT EN CAS D'URGENCE\" griffonnés dessus.",
-    "Une étiquette de masse indiquant que la société n'est pas responsable des effets secondaires.",
-    "Une étiquette de masse indiquant que c'est une nouvelle saveur.",
-    "Une très petite police décrivant en détail comment la potion a été faite, environ 1000 mots.",
-    "Son nom en lettres majuscules en géant.",
-    "L'étiquette est griffonnée.",
-    "L'étiquette est effacée et illisible.",
-    "L'étiquette semble manquante.",
-    "Sa description et un fait aléatoire.",
-    "Sa description et un petit compliment pour égayer votre journée.",
-    "Sa description et une blague.",
-    "Sa description en infernal.",
-    "Sa description dans une langue ancienne.",
-    "Tout en symboles.",
-    "Tout en symboles en relief pour les aveugles.",
-    "Sa description en langues élémentaires.",
-    "Son nom et sa saveur.",
-    "Son nom avec un avertissement sur les effets secondaires.",
-    "Son nom et son prix recommandé.",
-    "Des empreintes sanglantes partout.",
-    "Le nom gravé sur le contenant.",
-    "Son nom brillant avec une magie mineure.",
-    "Une mascotte cartoon.",
-    "Un avertissement sur une ancienne malédiction.",
-    "Son nom et sa description en encre invisible.",
-    "Sa description en draconique.",
-    "Plusieurs noms et descriptions différents superposés.",
-    "Le nom d'une potion complètement différente de ce qu'elle fait.",
-    "Un titre décrivant exactement le contraire.",
-    "Une garantie de remboursement.",
-    "Un coupon pour une potion gratuite.",
-    "Un visage vivant qui regarde autour.",
-    "Son nom et la recette pour d'autres alchimistes.",
-    "Une lettre d'amour sincère pour quelqu'un.",
-    "Une lettre de haine sincère pour quelqu'un.",
-    "Le nom d'une personne. La potion ne fonctionnera pas à moins qu'on ne lui demande par son nom.",
-    "Une étrange prophétie.",
-    "Un petit dessin.",
-    "Une note disant \"NE PAS BOIRE\".",
-    "Une note passive-agressive sur les gens qui boivent des potions qui ne leur appartiennent pas.",
-    "Des lettres brillamment lumineuses.",
-    "Une chanson très silencieuse qui joue jusqu'à ce que la bouteille soit vide.",
-    "Des designs ornés et magnifiques.",
-    "Des designs très pratiques.",
-    "Des symboles sacrés.",
-    "Des symboles profanes.",
-    "Des symboles féeriques et une écriture sylvestre.",
-    "Une énigme, le bouchon ne s'ouvrant pas à moins que l'énigme ne soit résolue.",
-    "Une note disant qu'elle est conçue pour les bébés.",
-    "Une note disant qu'elle ne doit pas être bue par les moins de 18 ans.",
-    "Une note disant que c'est de la contrebande illégale confisquée.",
-    "Une note disant que l'alchimiste pense que c'est son plus grand travail.",
-    "Une note disant que l'alchimiste regrette de l'avoir créée.",
-    "Une note disant qu'elle n'aurait jamais dû être faite et des taches de sang partout sur la bouteille.",
-    "Une note disant \"Vous êtes surveillé\". Quand la personne vérifie, elle dit \"Je plaisante\".",
-    "Sa description en druidique.",
-    "Sa description en orc.",
-    "Sa description en gobelin.",
-    "Sa description en halfelin.",
-    "Sa description en céleste.",
-    "Sa description en commun des profondeurs.",
-    "Sa description en langage des abysses.",
-    "Sa description en symboles arcaniques étranges.",
-    "Une carte de l'endroit où la potion a été fabriquée.",
-    "Un petit puzzle pour enfants.",
-    "Une liste d'ingrédients sous leurs formes chimiques.",
-    "Une liste d'effets secondaires aussi longue que la bouteille.",
-    "Une croix rouge.",
-    "Un visage triste.",
-    "Un visage en colère.",
-    "Un visage heureux.",
-    "Un symbole de guérison.",
-    "Un nom de potion avec un jeu de mots ringard.",
-    "Des vignes qui poussent dessus.",
-    "Des fleurs qui poussent dessus.",
-    "Des cristaux qui poussent dessus.",
-    "De la roche qui pousse dessus.",
-    "Des symboles chamaniques et des copeaux.",
-    "Pas de mots, juste une seule couleur.",
-    "Des dommages causés par l'eau, mais une étiquette encore lisible.",
-    "Une étiquette comme si c'était un cadeau.",
-    "Une étiquette indiquant le nombre de calories.",
-    "Un avertissement sur l'abus de potions et de ne prendre qu'avec modération.",
-    "Une étiquette avec des avertissements et des effets secondaires tous griffonnés.",
-    "Une étiquette qui ne montre que les effets secondaires.",
-    "Un numéro mystérieux.",
-    "Un nom de code.",
-    "Quelques lettres sans rapport.",
-    "Le nom d'un des membres du groupe.",
-    "Le nom du méchant.",
-    "Des insectes rampant dessus.",
-    "Recouverte de quelque chose d'indicible.",
-    "Recouverte de paillettes. Ça se répand partout.",
+    "Son nom et son titre en lettres majuscules",
+    "Sa description en elfique orné",
+    "Sa description en elfique avec une histoire mythique pertinente",
+    "Sa description en nain",
+    "Des runes naines",
+    "Sa description en gnome",
+    "Des diagrammes gnomes pour son utilisation",
+    'Les mots "À UTILISER UNIQUEMENT EN CAS D\'URGENCE" griffonnés dessus',
+    "Une étiquette imprimée indiquant que la société n'est pas responsable des effets secondaires",
+    "Une étiquette imprimée indiquant que c'est une nouvelle saveur",
+    "Une très petite police décrivant en détail comment la potion a été faite, environ 1000 mots",
+    "Son nom en lettres majuscules en géant",
+    "L'étiquette est griffonnée",
+    "L'étiquette est effacée et illisible",
+    "L'étiquette semble manquante",
+    "Sa description et un fait aléatoire",
+    "Sa description et un petit compliment pour égayer votre journée",
+    "Sa description et une blague",
+    "Sa description en infernal",
+    "Sa description dans une langue ancienne",
+    "Tout en symboles",
+    "Tout en symboles en relief pour les aveugles",
+    "Sa description en langues élémentaires",
+    "Son nom et sa saveur",
+    "Son nom avec un avertissement sur les effets secondaires",
+    "Son nom et son prix recommandé",
+    "Des empreintes sanglantes partout",
+    "Le nom gravé sur le contenant",
+    "Son nom brillant avec une magie mineure",
+    "Une mascotte cartoon",
+    "Un avertissement sur une ancienne malédiction",
+    "Son nom et sa description en encre invisible",
+    "Sa description en draconique",
+    "Plusieurs noms et descriptions différents superposés",
+    "Le nom d'une potion complètement différente de ce qu'elle fait",
+    "Un titre décrivant exactement le contraire",
+    "Une garantie de remboursement",
+    "Un coupon pour une potion gratuite",
+    "Un visage vivant qui regarde autour",
+    "Son nom et la recette pour d'autres alchimistes",
+    "Une lettre d'amour sincère pour quelqu'un",
+    "Une lettre de haine sincère pour quelqu'un",
+    "Le nom d'une personne. La potion ne fonctionnera pas à moins qu'on ne lui demande par son nom",
+    "Une étrange prophétie",
+    "Un petit dessin",
+    'Une note disant "NE PAS BOIRE"',
+    "Une note passive-agressive sur les gens qui boivent des potions qui ne leur appartiennent pas",
+    "Des lettres brillamment lumineuses",
+    "Une chanson très silencieuse qui joue jusqu'à ce que la bouteille soit vide",
+    "Des designs ornés et magnifiques",
+    "Des designs très pratiques",
+    "Des symboles sacrés",
+    "Des symboles profanes",
+    "Des symboles féeriques et une écriture sylvestre",
+    "Une énigme, le bouchon ne s'ouvrant pas à moins que l'énigme ne soit résolue",
+    "Une note disant qu'elle est conçue pour les bébés",
+    "Une note disant qu'elle ne doit pas être bue par les moins de 18 ans",
+    "Une note disant que c'est de la contrebande illégale confisquée",
+    "Une note disant que l'alchimiste pense que c'est son plus grand travail",
+    "Une note disant que l'alchimiste regrette de l'avoir créée",
+    "Une note disant qu'elle n'aurait jamais dû être faite et des taches de sang partout sur la bouteille",
+    'Une note disant "Vous êtes surveillé". Quand la personne vérifie, elle dit "Je plaisante"',
+    "Sa description en druidique",
+    "Sa description en orc",
+    "Sa description en gobelin",
+    "Sa description en halfelin",
+    "Sa description en céleste",
+    "Sa description en commun des profondeurs",
+    "Sa description en langage des abysses",
+    "Sa description en symboles arcaniques étranges",
+    "Une carte de l'endroit où la potion a été fabriquée",
+    "Un petit puzzle pour enfants",
+    "Une liste d'ingrédients sous leurs formes chimiques",
+    "Une liste d'effets secondaires aussi longue que la bouteille",
+    "Une croix rouge",
+    "Un visage triste",
+    "Un visage en colère",
+    "Un visage heureux",
+    "Un symbole de guérison",
+    "Un nom de potion avec un jeu de mots ringard",
+    "Des vignes qui poussent dessus",
+    "Des fleurs qui poussent dessus",
+    "Des cristaux qui poussent dessus",
+    "De la roche qui pousse dessus",
+    "Des symboles chamaniques et des copeaux",
+    "Pas de mots, juste une seule couleur",
+    "Des dommages causés par l'eau, mais une étiquette encore lisible",
+    "Une étiquette comme si c'était un cadeau",
+    "Une étiquette indiquant le nombre de calories",
+    "Un avertissement sur l'abus de potions et de ne prendre qu'avec modération",
+    "Une étiquette avec des avertissements et des effets secondaires tous griffonnés",
+    "Une étiquette qui ne montre que les effets secondaires",
+    "Un numéro mystérieux",
+    "Un nom de code",
+    "Quelques lettres sans rapport",
+    "Le nom d'un des membres du groupe",
+    "Le nom du méchant",
+    "Des insectes rampant dessus",
+    "Recouverte de quelque chose d'indicible",
+    "Recouverte de paillettes. Ça se répand partout",
 ]
 
 effets_principaux = [
@@ -333,7 +340,7 @@ effets_principaux = [
     "Endurance. Donne à l'utilisateur plus d'endurance et de constitution. +2 à la Constitution pendant 1 heure.",
     "Pieds agiles. Donne à l'utilisateur plus de vitesse. Vitesse augmentée de 3 mètres pendant 1 heure.",
     "Connaissance. Augmente temporairement l'intelligence de l'utilisateur. +2 à l'Intelligence pendant 1 heure.",
-    "Le Barde. Augmente temporairement le Charisme de l'utilisateur. +2 au Charisme pendant 1 heure.",
+    "Barde. Augmente temporairement le Charisme de l'utilisateur. +2 au Charisme pendant 1 heure.",
     "Déguisement. Change la forme de l'utilisateur en un déguisement de n'importe quelle race et apparence. Transformation en une autre apparence pendant 1 heure.",
     "Festin. Supprime toute faim et soif de la cible. Nourrit et hydrate complètement pendant 24 heures.",
     "Jeunesse. Rend l'utilisateur plus jeune de quelques années. Réduit l'âge de 1d10 années pendant 24 heures.",
@@ -418,7 +425,7 @@ effets_secondaires = [
     "Vomissements pendant 1d4 rounds.",
     "Vision floue pendant 1d6 rounds.",
     "Cécité pendant 1d4 rounds.",
-    "Surdité pendant 1d4 rounds.", 
+    "Surdité pendant 1d4 rounds.",
     "Mutisme pendant 1d6 rounds.",
     "Perte de santé due à un saignement rapide (1d6 dégâts par round pendant 1d4 rounds).",
     "Un accent horrible soudain pendant 1d6 heures.",
@@ -504,58 +511,214 @@ effets_secondaires = [
     "Bavardage incontrôlable pendant 1d6 rounds.",
     "Douleurs légères (1d4 dégâts).",
     "Mauvais goût dans la bouche pendant 1d6 heures.",
-    "Étourdissement et rires incontrôlables pendant 1d4 rounds.",
+    "Vertiges pendant 1d4 rounds.",
     "Rires incontrôlables pendant 1d6 rounds.",
 ]
 
 intensite = [
-    (20, "Normale sans effet secondaire."),
-    (40, "Normale avec un effet secondaire."), 
-    (50, "Normale avec un effet secondaire intense."),
-    (70, "Majeure sans effet secondaire."),
-    (80, "Majeure avec un effet secondaire."),
-    (89, "Majeure avec un effet secondaire intense."),
-    (98, "Fugace mais ultra intense."),
-    (100, "Permanente.")
+    ("", "Effet de puissance normale"),
+    ("Puissant", "Double effet"),
+    ("Légendaire", "Triple effet"),
 ]
 
-def get_intensite(roll):
-    for threshold, effect in intensite:
-        if roll <= threshold:
-            return effect
+toxicite = [
+    ("", "Sans effet secondaire."),
+    ("Périmé", "Effet secondaire classique."),
+    ("Frelaté", "Effet secondaire double."),
+    ("Maudit", "Effet secondaire triple."),
+]
 
-def generer_potion():
-    nom =random.choice(titres)
-    conteneur = random.choice(conteneurs)
-    apparence_principale = random.choice(apparences_principales)
-    apparence_avec = random.choice(apparences_avec)
-    texture = random.choice(textures)
-    gout = random.choice(gouts_odeurs)
-    odeur = random.choice(gouts_odeurs)
-    etiquette = random.choice(etiquettes)
-    intensite_roll = random.randint(1, 100)
-    intensite = get_intensite(intensite_roll)
-    effet_principal = random.choice(effets_principaux)
-    effet_secondaire = random.choice(effets_secondaires)
+special = [
+    ("", "Pas d'effet spécial"),
+    ("Fulgurant", "L'effet ne dure qu'un instant, mais son intensité est décuplée."),
+    ("A retardement", "L'effet est retardé de 1d6 rounds en combat ou 1d20 minutes en dehors."),
+    ("Éternel", "L'effet est permanent. Un sort 'Délivrance des malédictions' peut le supprimer."),
+]
 
-    potion = f"""
-    {nom.upper()} DE {effet_principal.split(".")[0].upper()} {intensite.upper()}
-    
-    Apparence
-    {nom} {apparence_principale.lower()} {texture.lower()} avec {apparence_avec.lower()} dans {conteneur.lower()} avec {etiquette.lower()}
-    A l'odeur de {odeur.lower()} et le goût de {gout.lower()}
-    
-    Effets
-    {effet_principal.replace(". ", " : ")}"""
-    
-    if "avec" in intensite:
-        potion += f"""
-    Mais {effet_secondaire}"""
-    
-    potion = potion.replace(".", "")
-    
-    return potion
+genres_noms = {
+    "Potion": "f",
+    "Concoction": "f",
+    "Fiole": "f",
+    "Préparation": "f",
+    "Élixir": "m",
+    "Breuvage": "m",
+    "Philtre": "m",
+    "Tonique": "m",
+    "Ichor": "m",
+    "Jus": "m",
+}
 
 
-if __name__ == "__main__":
-    print(generer_potion())
+def accorder_intensite(nom, intensite):
+    if not intensite:  # Si intensite est vide
+        return ""
+
+    genre = genres_noms.get(nom, "m")  # Par défaut masculin si nom inconnu
+
+    if genre == "f":
+        if intensite == "Puissant":
+            return "Puissante"
+        elif intensite == "Légendaire":
+            return "Légendaire"  # Déjà invariable
+    return intensite
+
+
+def roll_potion():
+    potion_variables = {
+        "nom": random.choice(titres),
+        "conteneur": random.choice(conteneurs),
+        "apparence_principale": random.choice(apparences_principales),
+        "apparence_avec": random.choice(apparences_avec),
+        "texture": random.choice(textures),
+        "gout": random.choice(gouts_odeurs),
+        "odeur": random.choice(gouts_odeurs),
+        "etiquette": random.choice(etiquettes),
+        "effet_principal": random.choice(effets_principaux),
+    }
+
+    intensite_name, intensite_effect = random.choices(
+        intensite, weights=[60, 35, 5], k=1
+    )[0]
+    toxicite_name, toxicite_effect = random.choices(
+        toxicite, weights=[30, 30, 15, 5], k=1
+    )[0]
+    special_name, special_effect = random.choices(
+        special, weights=[79, 10, 10, 1], k=1
+    )[0]
+
+    # Générer le nombre approprié d'effets principaux
+    nb_effets = 1
+    if intensite_name == "Puissant":
+        nb_effets = 2
+    elif intensite_name == "Légendaire":
+        nb_effets = 3
+    effets_principaux_list = random.sample(effets_principaux, nb_effets)
+
+    # Générer le nombre approprié d'effets secondaires
+    nb_effets_secondaires = 0
+    if toxicite_name == "Périmé":
+        nb_effets_secondaires = 1
+    elif toxicite_name == "Frelaté":
+        nb_effets_secondaires = 2
+    elif toxicite_name == "Maudit":
+        nb_effets_secondaires = 3
+    effets_secondaires_list = (
+        random.sample(effets_secondaires, nb_effets_secondaires)
+        if nb_effets_secondaires > 0
+        else []
+    )
+
+    potion_variables.update(
+        {
+            "intensite_name": intensite_name,
+            "intensite_effect": intensite_effect,
+            "toxicite_name": toxicite_name,
+            "toxicite_effect": toxicite_effect,
+            "special_name": special_name,
+            "special_effect": special_effect,
+            "effets_principaux": effets_principaux_list,
+            "effets_secondaires": effets_secondaires_list,
+        }
+    )
+
+    return potion_variables
+
+
+def nettoyer(texte):
+    # Liste des voyelles
+    voyelles = "aeiouyAEIOUY"
+
+    # On remplace uniquement "DE" suivi d'une voyelle par "D'"
+    texte = re.sub(r"\bDE (?=[" + voyelles + r"])", "D'", texte)
+
+    return texte
+
+
+def titre_procedural(potion_variables):
+    # Accorder l'intensité avec le nom
+    intensite_accordee = accorder_intensite(
+        potion_variables["nom"], potion_variables["intensite_name"]
+    )
+
+    # Construire le titre avec tous les effets principaux
+    effets_noms = " ".join(
+        [effet.split(".")[0].upper() for effet in potion_variables["effets_principaux"]]
+    )
+
+    titre = f"{potion_variables['nom'].upper()} {intensite_accordee.upper()} DE {effets_noms} {potion_variables['special_name'].upper()} {potion_variables['toxicite_name'].upper()}"
+    
+    return f"*{titre.strip()}*"
+
+
+def titre_ai(description):
+    client = OpenAI()
+
+    completion = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {
+                "role": "system",
+                "content": "Tu es un générateur de nom de potion DnD. Tu dois générer un nom de potion évocateur et métaphorique, sans justification.",
+            },
+            {"role": "user", "content": description},
+        ],
+        max_tokens=50,  # Limite la longueur de la réponse
+        temperature=0.7,  # Contrôle la créativité de la réponse
+    )
+    return completion.choices[0].message.content
+
+def generer_potion(titre="Procedural"):
+    potion_variables = roll_potion()
+
+    tags = [
+        tag.upper()
+        for tag in [
+            potion_variables['intensite_name'],
+            potion_variables['toxicite_name'],
+            potion_variables['special_name']
+        ]
+        if tag
+    ]
+
+    tags = f"""*{", ".join(tags)}*""".upper()
+
+    description = f"""#### *Description*
+{potion_variables['conteneur']} contient un liquide {potion_variables['apparence_principale'].lower()} {potion_variables['texture'].lower()} avec {potion_variables['apparence_avec'].lower()}.
+Dessus figure {potion_variables['etiquette'].lower()}.
+Son odeur rappelle {potion_variables['odeur'].lower()} et son goût évoque {potion_variables['gout'].lower()}."""
+
+    effets_principaux = "##### *Effets principaux*\n"
+    # Ajouter tous les effets principaux
+    for effet in potion_variables["effets_principaux"]:
+        effets_principaux += f"- ***{effet.split('.')[0]}***\n"
+        effets_principaux += f"    - {effet[len(effet.split('.')[0])+1:]}\n"
+
+    effets_secondaires = "##### *Effets secondaires*\n"
+    # Ajouter les effets secondaires s'il y en a
+    if potion_variables["effets_secondaires"]:
+        for effet in potion_variables["effets_secondaires"]:
+            effets_secondaires += f"- {effet.capitalize()}\n"
+
+    effets_spéciaux = "##### *Effets spéciaux*\n"
+    if potion_variables["special_name"] != "":
+        effets_spéciaux += f"- {potion_variables['special_name'].capitalize()}\n"
+        effets_spéciaux += f"    - {potion_variables['special_effect']}\n"
+
+    potion = f"{description}\n\n{effets_principaux}"
+
+    if potion_variables["effets_secondaires"] != []:
+        potion += f"\n\n{effets_secondaires}"
+    if potion_variables["special_name"] != "":
+        potion += f"\n\n{effets_spéciaux}"
+
+    if tags != "**":
+        potion = f"{tags}\n\n{potion}"
+    if titre == "Procedural":
+        titre = titre_procedural(potion_variables)
+    
+    elif titre == "AI":
+        titre = titre_ai(potion)
+
+    potion = f"### {titre}\n\n{potion}"
+
+    return nettoyer(potion)
