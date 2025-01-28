@@ -1,9 +1,11 @@
 import random
 import re
+import json
 
 import dotenv
 from openai import OpenAI
 
+import imgkit
 
 dotenv.load_dotenv()
 
@@ -413,7 +415,6 @@ effets_principaux = [
 ]
 
 effets_secondaires = [
-    "Rien de mal du tout !",
     "Endort l'utilisateur pendant 1d4 heures.",
     "Pousse rapide de poils sur tout le corps pendant 1d6 heures.",
     "Saignement des yeux pendant 1d4 rounds.",
@@ -531,8 +532,14 @@ toxicite = [
 special = [
     ("", "Pas d'effet spécial"),
     ("Fulgurant", "L'effet ne dure qu'un instant, mais son intensité est décuplée."),
-    ("A retardement", "L'effet est retardé de 1d6 rounds en combat ou 1d20 minutes en dehors."),
-    ("Éternel", "L'effet est permanent. Un sort 'Délivrance des malédictions' peut le supprimer."),
+    (
+        "A retardement",
+        "L'effet est retardé de 1d6 rounds en combat ou 1d20 minutes en dehors.",
+    ),
+    (
+        "Éternel",
+        "L'effet est permanent. Un sort 'Délivrance des malédictions' peut le supprimer.",
+    ),
 ]
 
 genres_noms = {
@@ -642,15 +649,21 @@ def titre_procedural(potion_variables):
 
     # Construire le titre avec tous les effets principaux
     effets_noms = " ".join(
-        [effet.split(".")[0].upper() for effet in potion_variables["effets_principaux"]]
+        [effet.split(".")[0] for effet in potion_variables["effets_principaux"]]
     )
 
-    titre = f"{potion_variables['nom'].upper()} {intensite_accordee.upper()} DE {effets_noms} {potion_variables['special_name'].upper()} {potion_variables['toxicite_name'].upper()}"
-    
-    return f"*{titre.strip()}*"
+    return f"{potion_variables['nom']} {intensite_accordee} de {effets_noms} {potion_variables['special_name']} {potion_variables['toxicite_name']}".capitalize()
 
 
-def titre_ai(description):
+def titre_ai(potion_variables):
+    potion_description = {
+        "nom": titre_procedural(potion_variables),
+        "description": f"{potion_variables['conteneur']} contient un liquide {potion_variables['apparence_principale'].lower()} {potion_variables['texture'].lower()} avec {potion_variables['apparence_avec'].lower()}. Dessus figure {potion_variables['etiquette'].lower()}. Son odeur rappelle {potion_variables['odeur'].lower()} et son goût évoque {potion_variables['gout'].lower()}.",
+        "effets_principaux": potion_variables["effets_principaux"],
+        # "effets_secondaires": potion_variables["effets_secondaires"],
+        "effets_speciaux": potion_variables["special_name"],
+    }
+        
     client = OpenAI()
 
     completion = client.chat.completions.create(
@@ -658,67 +671,157 @@ def titre_ai(description):
         messages=[
             {
                 "role": "system",
-                "content": "Tu es un générateur de nom de potion DnD. Tu dois générer un nom de potion évocateur et métaphorique, sans justification.",
+                "content": "Tu es un générateur de nom de potion DnD. A partir des caractéristiques de la potion fournies, tu dois générer un nom de potion évocateur et métaphorique, sans justification ni formatage.",
             },
-            {"role": "user", "content": description},
+            {"role": "user", "content": json.dumps(potion_description)},
         ],
-        max_tokens=50,  # Limite la longueur de la réponse
-        temperature=0.7,  # Contrôle la créativité de la réponse
+        max_tokens=50,
+        temperature=0.9,
     )
     return completion.choices[0].message.content
 
-def generer_potion(titre="Procedural"):
+
+def generer_potion(type_titre="Procedural"):
     potion_variables = roll_potion()
 
     tags = [
-        tag.upper()
+        tag.capitalize()
         for tag in [
-            potion_variables['intensite_name'],
-            potion_variables['toxicite_name'],
-            potion_variables['special_name']
+            potion_variables["intensite_name"],
+            potion_variables["toxicite_name"],
+            potion_variables["special_name"],
         ]
         if tag
     ]
 
-    tags = f"""*{", ".join(tags)}*""".upper()
+    tags = f"""<div class="tags">{", ".join(tags)}</div>""" if tags else ""
 
-    description = f"""#### *Description*
-{potion_variables['conteneur']} contient un liquide {potion_variables['apparence_principale'].lower()} {potion_variables['texture'].lower()} avec {potion_variables['apparence_avec'].lower()}.
-Dessus figure {potion_variables['etiquette'].lower()}.
-Son odeur rappelle {potion_variables['odeur'].lower()} et son goût évoque {potion_variables['gout'].lower()}."""
+    description_potion = f"""<div class="description">
+    <h4>Description</h4>
+    <p>{potion_variables['conteneur']} contient un liquide {potion_variables['apparence_principale'].lower()} {potion_variables['texture'].lower()} avec {potion_variables['apparence_avec'].lower()}.</p>
+    <p>Dessus figure {potion_variables['etiquette'].lower()}.</p>
+    <p>Son odeur rappelle {potion_variables['odeur'].lower()} et son goût évoque {potion_variables['gout'].lower()}.</p>
+</div>"""
 
-    effets_principaux = "##### *Effets principaux*\n"
+    effets_principaux = """<div class="effets-principaux">
+    <h4>Effets principaux</h4>
+    <div class="property-block">"""
+
     # Ajouter tous les effets principaux
     for effet in potion_variables["effets_principaux"]:
-        effets_principaux += f"- ***{effet.split('.')[0]}***\n"
-        effets_principaux += f"    - {effet[len(effet.split('.')[0])+1:]}\n"
+        nom = effet.split(".")[0]
+        description = effet[len(nom) + 1 :]
+        effets_principaux += f"""
+        <h5>{nom}</h5>
+        <p>{description}</p>"""
+    effets_principaux += "</div></div>"
 
-    effets_secondaires = "##### *Effets secondaires*\n"
-    # Ajouter les effets secondaires s'il y en a
+    effets_secondaires = """<div class="effets-secondaires">
+    <h4>Effets secondaires</h4>
+    <div class="property-block">"""
+
     if potion_variables["effets_secondaires"]:
         for effet in potion_variables["effets_secondaires"]:
-            effets_secondaires += f"- {effet.capitalize()}\n"
+            effets_secondaires += f"<p>{effet.capitalize()}</p>"
+    effets_secondaires += "</div></div>"
 
-    effets_spéciaux = "##### *Effets spéciaux*\n"
+    effets_speciaux = """<div class="effets-speciaux">
+    <h4>Effets spéciaux</h4>
+    <div class="property-block">"""
+
     if potion_variables["special_name"] != "":
-        effets_spéciaux += f"- {potion_variables['special_name'].capitalize()}\n"
-        effets_spéciaux += f"    - {potion_variables['special_effect']}\n"
+        effets_speciaux += f"""
+        <h5>{potion_variables['special_name'].capitalize()}</h5>
+        <p>{potion_variables['special_effect']}</p>"""
+    effets_speciaux += "</div></div>"
 
-    potion = f"{description}\n\n{effets_principaux}"
+    potion = f"""<div class="stat-block">"""
+
+    if type_titre == "Procedural":
+        titre = titre_procedural(potion_variables)
+    elif type_titre == "AI":
+        titre = titre_ai(potion_variables)
+
+    potion += f"""<div class="creature-heading">
+        <h1>{titre}</h1>
+        {tags}
+    </div>
+    {description_potion}
+    {effets_principaux}"""
 
     if potion_variables["effets_secondaires"] != []:
-        potion += f"\n\n{effets_secondaires}"
+        potion += effets_secondaires
     if potion_variables["special_name"] != "":
-        potion += f"\n\n{effets_spéciaux}"
+        potion += effets_speciaux
 
-    if tags != "**":
-        potion = f"{tags}\n\n{potion}"
-    if titre == "Procedural":
-        titre = titre_procedural(potion_variables)
-    
-    elif titre == "AI":
-        titre = titre_ai(potion)
+    potion += "</div>"
 
-    potion = f"### {titre}\n\n{potion}"
+    style = """
+    <style>
+    .stat-block {
+        font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+        background: #FDF1DC;
+        padding: 0.6em;
+        border: 1px solid #DDD;
+        box-shadow: 0 0 1.5em #867453;
+        margin: 2em;
+        border-radius: 10px;
+        color: #222;
+    }
+    .stat-block h1 {
+        font-family: 'Modesto Condensed', 'Libre Baskerville', 'Lora', 'Calisto MT', serif;
+        color: #922610;
+        font-size: 1.8em;
+        line-height: 1.2em;
+        margin: 10px 0 0;
+        letter-spacing: 1px;
+        font-variant: small-caps;
+        font-weight: 900;
+    }
+    .stat-block h4 {
+        font-family: 'Modesto Condensed', 'Libre Baskerville', 'Lora', 'Calisto MT', serif;
+        font-size: 1.2em;
+        color: #922610;
+        margin: 1em 0 0.5em;
+        font-variant: small-caps;
+        font-weight: bold;
+        border-bottom: 1px solid #922610;
+    }
+    .stat-block h5 {
+        font-size: 1em;
+        color: #922610;
+        margin: 1em 0 0.2em;
+        font-weight: bold;
+    }
+    .stat-block .tags {
+        font-style: italic;
+        color: #922610;
+    }
+    .property-block {
+        margin-top: 0.3em;
+        margin-bottom: 0.9em;
+        line-height: 1.5;
+        color: #222; /* Couleur de texte pour les blocs de propriétés */
+    }
+    .property-block p {
+        margin: 0.2em 0;
+        color: #222; /* Couleur de texte pour les paragraphes */
+    }
+    </style>
+    """
 
-    return nettoyer(potion)
+    return nettoyer(style + potion), titre
+
+
+def export_potion(potion, titre):
+    nom_fichier = f"potion_images/{titre.replace(' ', '_')}.png"
+    imgkit.from_string(
+        potion,
+        nom_fichier,
+        options={
+            "format": "png",
+            "transparent": "",
+            "quiet": ""
+        },
+    )
+
