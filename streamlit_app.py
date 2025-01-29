@@ -66,15 +66,15 @@ if pin == 8565:
         
         with col1:
             nom = st.selectbox("Type de potion", TABLES["titres"])
-            conteneur = st.selectbox("Conteneur", TABLES["conteneurs"])
-            apparence_principale = st.selectbox("Apparence principale", TABLES["apparences_principales"])
-            apparence_avec = st.selectbox("Apparence avec", TABLES["apparences_avec"])
+            conteneur = st.selectbox("Conteneur", TABLES["conteneurs"], index=0)
+            apparence_principale = st.selectbox("Apparence principale", TABLES["apparences_principales"], index=3)
+            apparence_avec = st.selectbox("Apparence avec", TABLES["apparences_avec"], index=8)
             
         with col2:
-            texture = st.selectbox("Texture", TABLES["textures"])
-            gout = st.selectbox("Gout", TABLES["gouts_odeurs"])
-            odeur = st.selectbox("Odeur", TABLES["gouts_odeurs"])
-            etiquette = st.selectbox("Etiquette", TABLES["etiquettes"])
+            texture = st.selectbox("Texture", TABLES["textures"], index=0)
+            gout = st.selectbox("Gout", TABLES["gouts_odeurs"], index=3)
+            odeur = st.selectbox("Odeur", TABLES["gouts_odeurs"], index=4)
+            etiquette = st.selectbox("Etiquette", TABLES["etiquettes"], index=0)
         
         with col3:
             intensite = st.selectbox("Intensité", [i[0] for i in TABLES["intensite"]])
@@ -86,7 +86,7 @@ if pin == 8565:
             else:
                 max_effets_principaux = 1
                 
-            effets_principaux = st.multiselect(f"Effets principaux ({max_effets_principaux})", TABLES["effets_principaux"], max_selections=max_effets_principaux)
+            effets_principaux = st.multiselect(f"Effets principaux ({max_effets_principaux})", TABLES["effets_principaux"], default=["Soin. Régénère instantanément des points de vie lorsqu'elle est bue. Régénère 2d6+4 PV."], max_selections=max_effets_principaux)
             
             toxicite = st.selectbox("Toxicité", [i[0] for i in TABLES["toxicite"]])
             
@@ -133,30 +133,12 @@ if pin == 8565:
         potion, titre = design_potion(potion_variables, titre_personnalise if titre_personnalise else "Procedural")
         st.divider()
         st.html(potion)
-        # export_potion(potion, titre)
-        # st.download_button(
-        #     label="Télécharger",
-        #     data=open(f"potion_images/{titre.replace(' ', '_')}.png", "rb").read(),
-        #     file_name=f"{titre.replace(' ', '_')}.png",
-        #     mime="image/png"
-        # )
-
-# {
-#     "nom": random.choice(TABLES["titres"]),
-#     "conteneur": random.choice(TABLES["conteneurs"]),
-#     "apparence_principale": random.choice(TABLES["apparences_principales"]),
-#     "apparence_avec": random.choice(TABLES["apparences_avec"]),
-#     "texture": random.choice(TABLES["textures"]),
-#     "gout": random.choice(TABLES["gouts_odeurs"]),
-#     "odeur": random.choice(TABLES["gouts_odeurs"]),
-#     "etiquette": random.choice(TABLES["etiquettes"]),
-#     "effet_principal": random.choice(TABLES["effets_principaux"]),
-#     "intensite_name": intensite_name,
-#     "intensite_effect": intensite_effect,
-#     "toxicite_name": toxicite_name,
-#     "toxicite_effect": toxicite_effect,
-#     "special_name": special_name,
-#     "special_effect": special_effect,
-#     "effets_principaux": effets_principaux_list,
-#     "effets_secondaires": effets_secondaires_list,
-# }
+        generate_button = st.button("Générer")
+        if generate_button:
+            export_potion(potion, titre)
+            st.download_button(
+                label="Télécharger",
+                data=open(f"potion_images/{titre.replace(' ', '_')}.png", "rb").read(),
+                file_name=f"{titre.replace(' ', '_')}.png",
+                mime="image/png"
+            )
