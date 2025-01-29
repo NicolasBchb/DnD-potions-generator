@@ -11,15 +11,23 @@ st.set_page_config(
     initial_sidebar_state="expanded"
     )
 
-if not os.path.exists("logs.csv"):
+if not os.path.exists("logs/logs.csv"):
     initialize_logs()
 
 st.markdown("""
 <h1 style="text-align: center;">🧙‍♂️ DnD Potion Generator</h1>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<div style="text-align: center; font-size: 0.9em; font-style: italic;">
+    Not all potions have labels, and drinking a mysterious liquid can be very dangerous... Or it could save your life!
+    <br>
+    This generator allows DMs to create random and procedural potions with amazing effects for their players. Have fun!
+</div>
+""", unsafe_allow_html=True)
+
 # Initialize session state if it doesn't exist
-if 'potions' not in st.session_state:
+if 'en_potions' not in st.session_state:
     st.session_state.en_potions = []
 
 pin = st.sidebar.number_input("Number of ingredients", 0, 9999, 0)
@@ -53,7 +61,7 @@ if radio == "Generation":
                 potion_variables = roll_potion()
                 potion, titre = design_potion(potion_variables, type_titre)
                 export_potion(potion, titre)
-                log_potion("en", titre, potion_variables)
+                log_potion("en", type_titre, titre, potion_variables)
                 st.divider()
                 st.html(potion)
                 st.download_button(
@@ -158,7 +166,7 @@ else:
     generate_button = st.button("Generate")
     if generate_button:
         export_potion(potion, titre)
-        log_potion("en", titre, potion_variables)
+        log_potion("en", ("Personnalisé" if custom_title else "Procedural"), titre, potion_variables)
         st.download_button(
             label="Download",
             data=open(f"potion_images/{titre.replace(' ', '_')}.png", "rb").read(),

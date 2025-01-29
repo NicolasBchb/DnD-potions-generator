@@ -1,0 +1,1 @@
+nohup streamlit run 1_🇫🇷_Générateur_de_potions.py --client.showErrorDetails="none" --client.toolbarMode="minimal" --server.runOnSave="true" > logs/nohup.out 2> logs/errors.out

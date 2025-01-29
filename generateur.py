@@ -271,11 +271,12 @@ def design_potion(potion_variables, type_titre="Procedural"):
     .stat-block {
         font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
         background: #FDF1DC;
-        padding: 0.6em;
+        background-image: url('https://www.aidedd.org/images/fond-ph.jpg');
+        padding: 0.5em 2em;
         border: 1px solid #DDD;
         box-shadow: 0 0 1.5em #867453;
         margin: 2em;
-        border-radius: 10px;
+        border-radius: 2px;
         color: #222;
     }
     .stat-block h1 {

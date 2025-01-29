@@ -14,11 +14,19 @@ st.markdown("""
 <h1 style="text-align: center;">🧙‍♂️ Générateur de potions DnD</h1>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<div style="text-align: center; font-size: 0.9em; font-style: italic;">
+    Toutes les potions n'ont pas d'étiquettes, et boire un liquide mystérieux s'avère être très dangereux... Ou cela pourrait vous sauver la vie !
+    <br>
+    Ce générateur permet aux MJs de créer des potions aléatoires et procédurales avec des effets incroyables pour leurs joueurs. Amusez-vous bien !
+</div>
+""", unsafe_allow_html=True)
+
 # Initialiser le session state s'il n'existe pas
-if 'potions' not in st.session_state:
+if 'fr_potions' not in st.session_state:
     st.session_state.fr_potions = []
     
-if not os.path.exists("logs.csv"):
+if not os.path.exists("logs/logs.csv"):
     initialize_logs()
 
 pin = st.sidebar.number_input("Nombre d'ingrédients", 0, 9999, 0)
@@ -53,7 +61,7 @@ if radio == "Génération":
                 potion_variables = roll_potion()
                 potion, titre = design_potion(potion_variables, type_titre)
                 export_potion(potion, titre)
-                log_potion("fr", titre, potion_variables)
+                log_potion("fr", type_titre, titre, potion_variables)
                 st.divider()
                 st.html(potion)
                 st.download_button(
@@ -68,7 +76,6 @@ if radio == "Génération":
                     'titre': titre,
                     'image': open(f"potion_images/{titre.replace(' ', '_')}.png", "rb").read()
                 })
-
 
         else:
             # Afficher les potions stockées dans le session state
@@ -146,9 +153,7 @@ else:
         "odeur": odeur,
         "etiquette": etiquette,
         "intensite_name": intensite,
-        # "intensite_effect": intensite_effect,
         "toxicite_name": toxicite,
-        # "toxicite_effect": toxicite_effect,
         "special_name": special,
         "special_effect": special_effect,
         "effets_principaux": effets_principaux,
@@ -160,7 +165,7 @@ else:
     st.html(potion)
     generate_button = st.button("Générer")
     if generate_button:
-        log_potion("fr", titre, potion_variables)
+        log_potion("fr", ("Personnalisé" if titre_personnalise else "Procedural"), titre, potion_variables)
         export_potion(potion, titre)
         st.download_button(
             label="Télécharger",
