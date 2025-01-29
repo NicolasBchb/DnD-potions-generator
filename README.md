@@ -33,6 +33,7 @@ cd generateur-potion-dnd
 2. Installer les dépendances
 ```bash
 pip install -r requirements.txt
+sudo apt-get install wkhtmltopdf
 ```
 
 3. Créer un fichier `.env` avec les variables d'environnement suivantes :
