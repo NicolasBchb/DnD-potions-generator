@@ -10,73 +10,45 @@ import imgkit
 dotenv.load_dotenv()
 
 TABLES = {
-    "titres": json.load(open("tables/titres.json")),
-    "conteneurs": json.load(open("tables/conteneurs.json")),
-    "apparences_principales": json.load(open("tables/apparences_principales.json")),
-    "apparences_avec": json.load(open("tables/apparences_avec.json")),
-    "textures": json.load(open("tables/textures.json")),
-    "gouts_odeurs": json.load(open("tables/gouts_odeurs.json")),
-    "etiquettes": json.load(open("tables/etiquettes.json")),
-    "effets_principaux": json.load(open("tables/effets_principaux.json")),
-    "effets_secondaires": json.load(open("tables/effets_secondaires.json")),
+    "titres": json.load(open("tables/en/titres.json")),
+    "conteneurs": json.load(open("tables/en/conteneurs.json")),
+    "apparences_principales": json.load(open("tables/en/apparences_principales.json")),
+    "apparences_avec": json.load(open("tables/en/apparences_avec.json")),
+    "textures": json.load(open("tables/en/textures.json")),
+    "gouts_odeurs": json.load(open("tables/en/gouts_odeurs.json")),
+    "etiquettes": json.load(open("tables/en/etiquettes.json")),
+    "effets_principaux": json.load(open("tables/en/effets_principaux.json")),
+    "effets_secondaires": json.load(open("tables/en/effets_secondaires.json")),
     "intensite": [
-        ("", "Effet de puissance normale"),
-        ("Puissant", "Double effet"),
-        ("Légendaire", "Triple effet"),
+        ("", "Normal power effect"),
+        ("Strong", "Double effect"),
+        ("Legendary", "Triple effect"),
     ],
     "toxicite": [
-        ("", "Sans effet secondaire."),
-        ("Périmé", "Effet secondaire classique."),
-        ("Frelaté", "Effet secondaire double."),
-        ("Maudit", "Effet secondaire triple."),
+        ("", "No secondary effect."),
+        ("Rotten", "Classic secondary effect."),
+        ("Flayed", "Double secondary effect."),
+        ("Cursed", "Triple secondary effect."),
     ],
     "special": [
         (
             "",
-            "Pas d'effet spécial",
+            "No special effect",
         ),
         (
-            "Fulgurant",
-            "L'effet ne dure qu'un instant, mais son intensité est décuplée.",
+            "Flashing",
+            "The effect lasts only one instant, but its intensity is multiplied.",
         ),
         (
-            "A retardement",
-            "L'effet est retardé de 1d6 rounds en combat ou 1d20 minutes en dehors.",
+            "Delayed",
+            "The effect is delayed by 1d6 rounds in combat or 1d20 minutes outside.",
         ),
         (
-            "Éternel",
-            "L'effet est permanent. Un sort 'Délivrance des malédictions' peut le supprimer.",
+            "Eternal",
+            "The effect is permanent. A 'Remove Curse' spell can remove it.",
         ),
     ],
 }
-
-genres_noms = {
-    "Potion": "f",
-    "Concoction": "f",
-    "Fiole": "f",
-    "Préparation": "f",
-    "Élixir": "m",
-    "Breuvage": "m",
-    "Philtre": "m",
-    "Tonique": "m",
-    "Ichor": "m",
-    "Jus": "m",
-}
-
-
-def accorder_intensite(nom, intensite):
-    if not intensite:  # Si intensite est vide
-        return ""
-
-    genre = genres_noms.get(nom, "m")  # Par défaut masculin si nom inconnu
-
-    if genre == "f":
-        if intensite == "Puissant":
-            return "Puissante"
-        elif intensite == "Légendaire":
-            return "Légendaire"  # Déjà invariable
-    return intensite
-
 
 def roll_potion():
     potion_variables = {
@@ -102,19 +74,19 @@ def roll_potion():
 
     # Générer le nombre approprié d'effets principaux
     nb_effets = 1
-    if intensite_name == "Puissant":
+    if intensite_name == "Strong":
         nb_effets = 2
-    elif intensite_name == "Légendaire":
+    elif intensite_name == "Legendary":
         nb_effets = 3
     effets_principaux_list = random.sample(TABLES["effets_principaux"], nb_effets)
 
     # Générer le nombre approprié d'effets secondaires
     nb_effets_secondaires = 0
-    if toxicite_name == "Périmé":
+    if toxicite_name == "Rotten":
         nb_effets_secondaires = 1
-    elif toxicite_name == "Frelaté":
+    elif toxicite_name == "Flayed":
         nb_effets_secondaires = 2
-    elif toxicite_name == "Maudit":
+    elif toxicite_name == "Cursed":
         nb_effets_secondaires = 3
     effets_secondaires_list = (
         random.sample(TABLES["effets_secondaires"], nb_effets_secondaires)
@@ -149,23 +121,18 @@ def nettoyer(texte):
 
 
 def titre_procedural(potion_variables):
-    # Accorder l'intensité avec le nom
-    intensite_accordee = accorder_intensite(
-        potion_variables["nom"], potion_variables["intensite_name"]
-    )
-
     # Construire le titre avec tous les effets principaux
     effets_noms = " ".join(
         [effet.split(".")[0] for effet in potion_variables["effets_principaux"]]
     )
 
-    return f"{potion_variables['nom']} {intensite_accordee} de {effets_noms} {potion_variables['special_name']} {potion_variables['toxicite_name']}".capitalize()
+    return f"{potion_variables['nom']} {potion_variables['intensite_name']} of {effets_noms} {potion_variables['special_name']} {potion_variables['toxicite_name']}".capitalize()
 
 
 def titre_ai(potion_variables):
     potion_description = {
         "nom": titre_procedural(potion_variables),
-        "description": f"{potion_variables['conteneur']} contient un liquide {potion_variables['apparence_principale'].lower()} {potion_variables['texture'].lower()} avec {potion_variables['apparence_avec'].lower()}. Dessus figure {potion_variables['etiquette'].lower()}. Son odeur rappelle {potion_variables['odeur'].lower()} et son goût évoque {potion_variables['gout'].lower()}.",
+        "description": f"{potion_variables['conteneur']} contains a liquid {potion_variables['apparence_principale'].lower()} {potion_variables['texture'].lower()} with {potion_variables['apparence_avec'].lower()}. On top is {potion_variables['etiquette'].lower()}. Its smell reminds {potion_variables['odeur'].lower()} and its taste evokes {potion_variables['gout'].lower()}.",
         "effets_principaux": potion_variables["effets_principaux"],
         # "effets_secondaires": potion_variables["effets_secondaires"],
         "effets_speciaux": potion_variables["special_name"],
@@ -178,7 +145,7 @@ def titre_ai(potion_variables):
         messages=[
             {
                 "role": "system",
-                "content": "Tu es un générateur de nom de potion DnD. A partir des caractéristiques de la potion fournies, tu dois générer un nom de potion évocateur et métaphorique, sans justification ni formatage.",
+                "content": "You are a DnD potion name generator. From the potion characteristics provided, you must generate a name evocative and metaphorical, without justification or formatting.",
             },
             {"role": "user", "content": json.dumps(potion_description)},
         ],
@@ -203,13 +170,13 @@ def design_potion(potion_variables, type_titre="Procedural"):
 
     description_potion = f"""<div class="description">
     <h4>Description</h4>
-    <p>{potion_variables['conteneur']} contient un liquide {potion_variables['apparence_principale'].lower()} {potion_variables['texture'].lower()} avec {potion_variables['apparence_avec'].lower()}.</p>
-    <p>Dessus figure {potion_variables['etiquette'].lower()}.</p>
-    <p>Son odeur rappelle {potion_variables['odeur'].lower()} mais son goût évoque {potion_variables['gout'].lower()}.</p>
+    <p>{potion_variables['conteneur']} contains a {potion_variables['texture'].lower()} {potion_variables['apparence_principale'].lower()} liquid with {potion_variables['apparence_avec'].lower()}.</p>
+    <p>The potion has a label showing {potion_variables['etiquette'].lower()}.</p>
+    <p>Its smell reminds {potion_variables['odeur'].lower()} but its taste evokes {potion_variables['gout'].lower()}.</p>
 </div>"""
 
     effets_principaux = """<div class="effets-principaux">
-    <h4>Effets principaux</h4>
+    <h4>Main effects</h4>
     <div class="property-block">"""
 
     # Ajouter tous les effets principaux
@@ -222,7 +189,7 @@ def design_potion(potion_variables, type_titre="Procedural"):
     effets_principaux += "</div></div>"
 
     effets_secondaires = """<div class="effets-secondaires">
-    <h4>Effets secondaires</h4>
+    <h4>Secondary effects</h4>
     <div class="property-block">"""
 
     for effet in potion_variables["effets_secondaires"]:
@@ -234,7 +201,7 @@ def design_potion(potion_variables, type_titre="Procedural"):
     effets_secondaires += "</div></div>"
 
     effets_speciaux = """<div class="effets-speciaux">
-    <h4>Effets spéciaux</h4>
+    <h4>Special effects</h4>
     <div class="property-block">"""
 
     if potion_variables["special_name"] != "":
