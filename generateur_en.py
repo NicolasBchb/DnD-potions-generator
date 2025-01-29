@@ -27,7 +27,7 @@ TABLES = {
     "toxicite": [
         ("", "No secondary effect."),
         ("Rotten", "Classic secondary effect."),
-        ("Flayed", "Double secondary effect."),
+        ("Adulterated", "Double secondary effect."),
         ("Cursed", "Triple secondary effect."),
     ],
     "special": [
@@ -36,11 +36,11 @@ TABLES = {
             "No special effect",
         ),
         (
-            "Flashing",
+            "Catalyzed",
             "The effect lasts only one instant, but its intensity is multiplied.",
         ),
         (
-            "Delayed",
+            "Inhibited",
             "The effect is delayed by 1d6 rounds in combat or 1d20 minutes outside.",
         ),
         (
@@ -84,7 +84,7 @@ def roll_potion():
     nb_effets_secondaires = 0
     if toxicite_name == "Rotten":
         nb_effets_secondaires = 1
-    elif toxicite_name == "Flayed":
+    elif toxicite_name == "Adulterated":
         nb_effets_secondaires = 2
     elif toxicite_name == "Cursed":
         nb_effets_secondaires = 3
@@ -122,11 +122,15 @@ def nettoyer(texte):
 
 def titre_procedural(potion_variables):
     # Construire le titre avec tous les effets principaux
-    effets_noms = " ".join(
-        [effet.split(".")[0] for effet in potion_variables["effets_principaux"]]
-    )
+    effets_list = [effet.split(".")[0] for effet in potion_variables["effets_principaux"]]
+    if len(effets_list) == 1:
+        effets_noms = effets_list[0]
+    elif len(effets_list) == 2:
+        effets_noms = f"{effets_list[0]} and {effets_list[1]}"
+    else:
+        effets_noms = f"{', '.join(effets_list[:-1])} and {effets_list[-1]}"
 
-    return f"{potion_variables['nom']} {potion_variables['intensite_name']} of {effets_noms} {potion_variables['special_name']} {potion_variables['toxicite_name']}".capitalize()
+    return f"{potion_variables['intensite_name'].lower()} {potion_variables['toxicite_name'].lower()} {potion_variables['special_name'].lower()} {potion_variables['nom'].lower()} of {effets_noms}".strip().capitalize()
 
 
 def titre_ai(potion_variables):

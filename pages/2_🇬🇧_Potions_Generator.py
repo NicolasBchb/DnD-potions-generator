@@ -20,7 +20,7 @@ st.markdown("""
 
 st.markdown("""
 <div style="text-align: center; font-size: 0.9em; font-style: italic;">
-    Not all potions have labels, and drinking a mysterious liquid can be very dangerous... Or it could save your life!
+    <strong style="color: #922610; font-weight: bold;">Not all potions have labels</strong>, and drinking a mysterious liquid can be very dangerous... Or it could save your life!
     <br>
     This generator allows DMs to create random and procedural potions with amazing effects for their players. Have fun!
 </div>
@@ -30,7 +30,7 @@ st.markdown("""
 if 'en_potions' not in st.session_state:
     st.session_state.en_potions = []
 
-pin = st.sidebar.number_input("Number of ingredients", 0, 9999, 0)
+pin = st.sidebar.number_input("Number of ingredients", 0, 99999, 0)
 
 radio = st.sidebar.radio("Mode", ["Generation", "Selection"], horizontal=True)
 

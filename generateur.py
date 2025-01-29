@@ -155,9 +155,14 @@ def titre_procedural(potion_variables):
     )
 
     # Construire le titre avec tous les effets principaux
-    effets_noms = " ".join(
-        [effet.split(".")[0] for effet in potion_variables["effets_principaux"]]
-    )
+
+    effets_list = [effet.split(".")[0] for effet in potion_variables["effets_principaux"]]
+    if len(effets_list) == 1:
+        effets_noms = effets_list[0]
+    elif len(effets_list) == 2:
+        effets_noms = f"{effets_list[0]} et {effets_list[1]}"
+    else:
+        effets_noms = f"{', '.join(effets_list[:-1])} et {effets_list[-1]}"
 
     return f"{potion_variables['nom']} {intensite_accordee} de {effets_noms} {potion_variables['special_name']} {potion_variables['toxicite_name']}".capitalize()
 

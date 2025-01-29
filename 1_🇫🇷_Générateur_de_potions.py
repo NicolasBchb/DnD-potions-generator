@@ -16,7 +16,7 @@ st.markdown("""
 
 st.markdown("""
 <div style="text-align: center; font-size: 0.9em; font-style: italic;">
-    Toutes les potions n'ont pas d'étiquettes, et boire un liquide mystérieux s'avère être très dangereux... Ou cela pourrait vous sauver la vie !
+    <strong style="color: #922610; font-weight: bold;">Toutes les potions n'ont pas d'étiquettes</strong>, et boire un liquide mystérieux pourrait s'avèrer très dangereux... Ou cela pourrait vous sauver la vie !
     <br>
     Ce générateur permet aux MJs de créer des potions aléatoires et procédurales avec des effets incroyables pour leurs joueurs. Amusez-vous bien !
 </div>
@@ -29,7 +29,7 @@ if 'fr_potions' not in st.session_state:
 if not os.path.exists("logs/logs.csv"):
     initialize_logs()
 
-pin = st.sidebar.number_input("Nombre d'ingrédients", 0, 9999, 0)
+pin = st.sidebar.number_input("Nombre d'ingrédients", 0, 99999, 0)
 
 
 radio = st.sidebar.radio("Mode", ["Génération", "Sélection"], horizontal=True)
