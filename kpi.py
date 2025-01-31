@@ -22,9 +22,8 @@ if __name__ == "__main__":
     df = pd.read_csv("logs/logs.csv", sep=";")
     
     timeline = px.histogram(
-        df, x="date", color="language", title="Nombre de potions générées par jour",
-        labels={"date": "Date", "language": "Langue", "count": "Nombre de potions"},
-        color_discrete_sequence=["#007bff", "#ff6b6b"],
+        df, x="date", color="ai", title="Nombre de potions générées par jour",
+        labels={"date": "Date", "ai": "Type", "count": "Nombre de potions"},
         nbins=500
     )
     
@@ -32,7 +31,7 @@ if __name__ == "__main__":
         xaxis_title="Date",
         yaxis_title="Nombre de potions",
         title="Nombre de potions générées par jour",
-        legend_title="Langue",
+        legend_title="Type",
         legend_orientation="h",
         legend_x=0.5,
         legend_xanchor="center"

@@ -176,7 +176,7 @@ def design_potion(potion_variables, type_titre="Procedural"):
     <h4>Description</h4>
     <p>{potion_variables['conteneur']} contains a {potion_variables['texture'].lower()} {potion_variables['apparence_principale'].lower()} liquid with {potion_variables['apparence_avec'].lower()}.</p>
     <p>The potion has a label showing {potion_variables['etiquette'].lower()}.</p>
-    <p>Its smell reminds {potion_variables['odeur'].lower()} but its taste evokes {potion_variables['gout'].lower()}.</p>
+    <p>Its smell reminds you of {potion_variables['odeur'].lower()}, but it tastes like {potion_variables['gout'].lower()}.</p>
 </div>"""
 
     effets_principaux = """<div class="effets-principaux">

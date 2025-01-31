@@ -44,7 +44,7 @@ if radio == "Génération":
         pass
 
     with col_container:
-        nb_potions = st.sidebar.slider("Nombre de potions", 1, 10, 1)
+        nb_potions = st.sidebar.slider("Nombre de potions", 1, 10 if pin != 8565 else 3, 1)
 
         if pin == 8565:
             type_titre = st.sidebar.selectbox("Titre", ["Procedural", "AI"])

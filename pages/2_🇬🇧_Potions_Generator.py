@@ -44,7 +44,7 @@ if radio == "Generation":
         pass
 
     with col_container:
-        nb_potions = st.sidebar.slider("Number of potions", 1, 10, 1)
+        nb_potions = st.sidebar.slider("Number of potions", 1, 10 if pin != 8565 else 3, 1)
 
         if pin == 8565:
             type_titre = st.sidebar.selectbox("Title", ["Procedural", "AI"])
@@ -175,5 +175,5 @@ else:
         )
 
 st.sidebar.divider()
-st.sidebar.caption("This generator is made by [NicolasBchb - Datalgo](https://x.com/nicolasbchb)")
-st.sidebar.caption("Potions characteristics are based on the great work of [Olirant](https://www.reddit.com/user/olirant/) on this [Reddit post](https://www.reddit.com/r/DnDBehindTheScreen/comments/4btnkc/random_potions_table/).")
+st.sidebar.caption("Generator by [NicolasBchb - Datalgo](https://x.com/nicolasbchb)")
+st.sidebar.caption("The potion characteristics are based on the excellent work of [Olirant](https://www.reddit.com/user/olirant/) from this [Reddit post](https://www.reddit.com/r/DnDBehindTheScreen/comments/4btnkc/random_potions_table/).")
