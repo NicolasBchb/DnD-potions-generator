@@ -1,0 +1,22 @@
+[
+    {
+        "name": "",
+        "description": "No secondary effect",
+        "nb_effects": 0
+    },
+    {
+        "name": "Rotten",
+        "description": "Classic secondary effect",
+        "nb_effects": 1
+    },
+    {
+        "name": "Adulterated",
+        "description": "Double secondary effect",
+        "nb_effects": 2
+    },
+    {
+        "name": "Cursed",
+        "description": "Triple secondary effect",
+        "nb_effects": 3
+    }
+]

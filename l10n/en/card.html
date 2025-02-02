@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .stat-block {
+            font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+            background: #FDF1DC;
+            background-image: url('https://www.aidedd.org/images/fond-ph.jpg');
+            padding: 0.5em 2em;
+            border: 1px solid #DDD;
+            box-shadow: 0 0 1.5em #867453;
+            margin: 2em;
+            border-radius: 2px;
+            color: #222;
+        }
+
+        .potion-heading h1 {
+            font-family: 'Modesto Condensed', 'Libre Baskerville', 'Lora', 'Calisto MT', serif;
+            color: #922610;
+            font-size: 1.8em;
+            line-height: 1.2em;
+            margin: 10px 0 0;
+            letter-spacing: 1px;
+            font-variant: small-caps;
+            font-weight: 900;
+        }
+
+        .tags {
+            font-style: italic;
+            color: #922610;
+        }
+
+        h4 {
+            font-family: 'Modesto Condensed', 'Libre Baskerville', 'Lora', 'Calisto MT', serif;
+            font-size: 1.2em;
+            color: #922610;
+            margin: 1em 0 0.5em;
+            font-variant: small-caps;
+            font-weight: bold;
+            border-bottom: 1px solid #922610;
+        }
+
+        h5 {
+            font-size: 1em;
+            color: #922610;
+            margin: 1em 0 0.2em;
+            font-weight: bold;
+        }
+
+        .property-block {
+            margin-top: 0.3em;
+            margin-bottom: 0.9em;
+            line-height: 1.5;
+            color: #222;
+        }
+
+        .property-block p {
+            margin: 0.2em 0;
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="stat-block">
+        <div class="potion-heading">
+            <h1>{{title}}</h1>
+            {% if tags %}
+            <div class="tags">{{tags}}</div>
+            {% endif %}
+        </div>
+
+        <div class="description">
+            <h4>Description</h4>
+            <p>{{container}} contains a {{main_appearance}} {{texture}} liquid with {{with_appearance}}.</p>
+            <p>You can see {{label}} on it.</p>
+            <p>Its smell reminds you of {{smell}} but it tastes like {{taste}}.</p>
+        </div>
+
+        <div class="effets-principaux">
+            <h4>Main effects</h4>
+            <div class="property-block">
+                {% for effect in main_effects %}
+                <h5>{{effect.name}}</h5>
+                <p><strong>{{effect.description}}</strong>&nbsp;: {{effect.value|lower}}.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if side_effects %}
+        <div class="effets-secondaires">
+            <h4>Side effects</h4>
+            <div class="property-block">
+                {% for effect in side_effects %}
+                <h5>{{effect.name}}</h5>
+                <p>{{effect.description}}.</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if special_effect and special_effect.name != "" %}
+        <div class="effets-speciaux">
+            <h4>Special effect</h4>
+            <div class="property-block">
+                <h5>{{special_effect.name}}</h5>
+                <p>{{special_effect.description}}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

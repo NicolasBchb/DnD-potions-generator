@@ -1,0 +1,502 @@
+[
+    {
+        "name": "Soin",
+        "description": "Régénère instantanément des points de vie lorsqu'elle est bue",
+        "value": "Régénère 2d6+4 PV"
+    },
+    {
+        "name": "Vigueur",
+        "description": "Donne des points de vie temporaires lorsqu'elle est bue",
+        "value": "Donne 1d10 PV temporaires pendant 1 heure"
+    },
+    {
+        "name": "Vitalité",
+        "description": "Régénère lentement des points de vie sur une période de quelques heures",
+        "value": "Régénère 1 PV par minute pendant 1 heure"
+    },
+    {
+        "name": "Puissance",
+        "description": "Donne un bonus aux jets d'attaque après avoir été bue",
+        "value": "+2 aux jets d'attaque pendant 10 minutes"
+    },
+    {
+        "name": "Courage",
+        "description": "Immunise contre la peur et donne une inspiration temporaire",
+        "value": "Immunité à la peur et avantage sur les jets de sauvegarde de Sagesse pendant 1 heure"
+    },
+    {
+        "name": "Force de géant",
+        "description": "Donne une force bien supérieure à l'utilisateur",
+        "value": "La Force devient 25 pendant 1 minute"
+    },
+    {
+        "name": "Résistance à la flamme",
+        "description": "Donne une résistance aux dégâts de feu",
+        "value": "Résistance aux dégâts de feu pendant 1 heure"
+    },
+    {
+        "name": "Résistance au froid",
+        "description": "Donne une résistance aux dégâts de froid",
+        "value": "Résistance aux dégâts de froid pendant 1 heure"
+    },
+    {
+        "name": "Résistance nécrotique",
+        "description": "Donne une résistance aux dégâts nécrotiques",
+        "value": "Résistance aux dégâts nécrotiques pendant 1 heure"
+    },
+    {
+        "name": "Résistance radiante",
+        "description": "Donne une résistance aux dégâts radiants",
+        "value": "Résistance aux dégâts radiants pendant 1 heure"
+    },
+    {
+        "name": "Peau de pierre",
+        "description": "Donne une résistance aux dégâts physiques",
+        "value": "Résistance aux dégâts contondants, perforants et tranchants pendant 10 minutes"
+    },
+    {
+        "name": "Résistance à l'acide",
+        "description": "Donne une résistance aux dégâts d'acide",
+        "value": "Résistance aux dégâts d'acide pendant 1 heure"
+    },
+    {
+        "name": "Résistance à la foudre",
+        "description": "Donne une résistance aux dégâts de foudre",
+        "value": "Résistance aux dégâts de foudre pendant 1 heure"
+    },
+    {
+        "name": "Charme de succube",
+        "description": "Rend l'utilisateur irrésistible aux personnes à proximité",
+        "value": "Les créatures à 9 mètres doivent réussir un jet de sauvegarde de Sagesse (DD 15) ou être charmées pendant 1 heure"
+    },
+    {
+        "name": "Bouclier",
+        "description": "Donne à l'utilisateur un bouclier magique d'énergie",
+        "value": "+2 à la CA pendant 1 minute"
+    },
+    {
+        "name": "Souffle de flamme",
+        "description": "Donne à l'utilisateur un souffle de feu pendant un court moment",
+        "value": "Souffle de feu (4d6 dégâts, cône de 4,5 mètres) pendant 1 minute"
+    },
+    {
+        "name": "Croissance",
+        "description": "Fait doubler la taille de l'utilisateur",
+        "value": "La taille double et les dégâts des attaques augmentent de 1d4 pendant 10 minutes"
+    },
+    {
+        "name": "Rétrécissement",
+        "description": "Réduit la taille de l'utilisateur de moitié",
+        "value": "La taille est réduite de moitié et la CA augmente de +2 pendant 10 minutes"
+    },
+    {
+        "name": "Compréhension",
+        "description": "Permet à l'utilisateur de comprendre toutes les langues",
+        "value": "Comprend toutes les langues pendant 1 heure"
+    },
+    {
+        "name": "Fertilité",
+        "description": "Rend l'utilisateur très fertile, presque certain de concevoir un enfant sous son effet !",
+        "value": "Fertilité maximale pendant 24 heures"
+    },
+    {
+        "name": "Intimidation",
+        "description": "Donne à l'utilisateur une voix puissante qui terrifie ceux qui l'entourent",
+        "value": "Les créatures à 9 mètres doivent réussir un jet de sauvegarde de Charisme (DD 15) ou être effrayées pendant 1 minute"
+    },
+    {
+        "name": "Chance",
+        "description": "Donne à l'utilisateur un boost temporaire de chance",
+        "value": "Avantage sur les jets de dés pendant 1 heure"
+    },
+    {
+        "name": "Mana",
+        "description": "Donne à l'utilisateur plus de puissance magique pour lancer des sorts",
+        "value": "Récupère 1d4 emplacements de sorts"
+    },
+    {
+        "name": "Arcanes",
+        "description": "Donne à l'utilisateur des sorts plus puissants",
+        "value": "Les sorts infligent +2 dégâts pendant 1 heure"
+    },
+    {
+        "name": "Forme animale",
+        "description": "Transforme l'utilisateur en un animal aléatoire",
+        "value": "Transformation en animal (CR 1 ou moins) pendant 1 heure"
+    },
+    {
+        "name": "Rêves",
+        "description": "Plonge l'utilisateur dans un monde de rêves hallucinatoires de son rêve parfait",
+        "value": "Hallucinations pendant 1 heure"
+    },
+    {
+        "name": "Cauchemars",
+        "description": "Plonge l'utilisateur dans un monde de cauchemars hallucinatoires de ses pires cauchemars",
+        "value": "Effrayé et désorienté pendant 1 heure"
+    },
+    {
+        "name": "Endurance",
+        "description": "Donne à l'utilisateur plus d'endurance et de constitution",
+        "value": "+2 à la Constitution pendant 1 heure"
+    },
+    {
+        "name": "Pieds agiles",
+        "description": "Donne à l'utilisateur plus de vitesse",
+        "value": "Vitesse augmentée de 3 mètres pendant 1 heure"
+    },
+    {
+        "name": "Connaissance",
+        "description": "Augmente temporairement l'intelligence de l'utilisateur",
+        "value": "+2 à l'Intelligence pendant 1 heure"
+    },
+    {
+        "name": "Barde",
+        "description": "Augmente temporairement le Charisme de l'utilisateur",
+        "value": "+2 au Charisme pendant 1 heure"
+    },
+    {
+        "name": "Déguisement",
+        "description": "Change la forme de l'utilisateur en un déguisement de n'importe quelle race et apparence",
+        "value": "Transformation en une autre apparence pendant 1 heure"
+    },
+    {
+        "name": "Festin",
+        "description": "Supprime toute faim et soif de la cible",
+        "value": "Nourrit et hydrate complètement pendant 24 heures"
+    },
+    {
+        "name": "Jeunesse",
+        "description": "Rend l'utilisateur plus jeune de quelques années",
+        "value": "Réduit l'âge de 1d10 années pendant 24 heures"
+    },
+    {
+        "name": "Vieillesse",
+        "description": "Vieillit l'utilisateur de quelques années",
+        "value": "Augmente l'âge de 1d10 années pendant 24 heures"
+    },
+    {
+        "name": "Fournaise",
+        "description": "Fait rayonner l'utilisateur avec une aura de dégâts",
+        "value": "Aura de 1d6 dégâts de feu dans un rayon de 1,5 mètre pendant 1 minute"
+    },
+    {
+        "name": "Vue d'aigle",
+        "description": "Donne à l'utilisateur une vision perçante et un bonus à la perception",
+        "value": "+5 à la Perception et vision dans le noir pendant 1 heure"
+    },
+    {
+        "name": "Santé",
+        "description": "Guérit toutes les maladies et maladies",
+        "value": "Guérit toutes les maladies et conditions"
+    },
+    {
+        "name": "Invulnérabilité",
+        "description": "Gèle l'utilisateur dans une stase qui le rend immunisé aux dégâts mais il ne peut pas bouger ou agir",
+        "value": "Immunité aux dégâts mais paralysé pendant 1 minute"
+    },
+    {
+        "name": "Énigme résolue",
+        "description": "Donne à l'utilisateur la solution à une seule énigme",
+        "value": "Résout une énigme spécifique"
+    },
+    {
+        "name": "Apparence horrifiante",
+        "description": "Rend l'utilisateur plus laid pendant un moment",
+        "value": "-2 au Charisme pendant 1 heure"
+    },
+    {
+        "name": "Apparence magnifique",
+        "description": "Rend l'utilisateur plus attirant pendant un moment",
+        "value": "+2 au Charisme pendant 1 heure"
+    },
+    {
+        "name": "Maîtrise de l'épée",
+        "description": "Rend l'utilisateur plus efficace et polyvalent avec une lame",
+        "value": "+2 aux jets d'attaque avec des armes de mêlée pendant 1 heure"
+    },
+    {
+        "name": "Maîtrise de l'arc",
+        "description": "Rend l'utilisateur plus efficace avec un arc ou une arme à distance",
+        "value": "+2 aux jets d'attaque avec des armes à distance pendant 1 heure"
+    },
+    {
+        "name": "Souffle de nymphe",
+        "description": "Permet à l'utilisateur de respirer sous l'eau",
+        "value": "Respiration aquatique pendant 1 heure"
+    },
+    {
+        "name": "Midas",
+        "description": "Transforme les objets en or",
+        "value": "Transforme un objet en or (jusqu'à 30 cm de diamètre) pendant 1 heure"
+    },
+    {
+        "name": "Berserker",
+        "description": "Fait entrer l'utilisateur dans une rage de grande force",
+        "value": "Avantage sur les jets de force et +2 aux dégâts pendant 1 minute"
+    },
+    {
+        "name": "Haine absolue",
+        "description": "Donne à l'utilisateur des bonus contre un type d'ennemi particulier",
+        "value": "+2 aux jets d'attaque et de dégâts contre un type d'ennemi spécifique pendant 1 heure"
+    },
+    {
+        "name": "Oracle",
+        "description": "Permet à l'utilisateur de deviner l'avenir",
+        "value": "Peut poser une question sur l'avenir et obtenir une réponse vague"
+    },
+    {
+        "name": "Sangsue démoniaque",
+        "description": "Soigne une partie des dégâts infligés par l'utilisateur",
+        "value": "Soigne 1d6 PV pour chaque 10 dégâts infligés pendant 1 heure"
+    },
+    {
+        "name": "Nature féerique",
+        "description": "Permet à l'utilisateur de devenir un avec les animaux et la nature environnante",
+        "value": "Communication avec les animaux et avantage aux jets de Nature pendant 1 heure"
+    },
+    {
+        "name": "Sans trace",
+        "description": "Rend l'utilisateur très difficile à suivre",
+        "value": "Avantage aux jets de Discrétion et pas de traces physiques pendant 1 heure"
+    },
+    {
+        "name": "Grâce",
+        "description": "Améliore les compétences d'acrobatie de l'utilisateur",
+        "value": "+5 aux tests d'Acrobatie pendant 1 heure"
+    },
+    {
+        "name": "Escalade de gobelin",
+        "description": "Donne à l'utilisateur un bonus à l'escalade",
+        "value": "+5 aux tests d'Escalade pendant 1 heure"
+    },
+    {
+        "name": "Mort apparente",
+        "description": "Rend l'utilisateur complètement mort à toute magie",
+        "value": "Apparaît mort aux détections magiques pendant 1 heure"
+    },
+    {
+        "name": "Trèfle à une feuille",
+        "description": "Donne à l'utilisateur une malchance",
+        "value": "Désavantage sur tous les jets de dés pendant 1 heure"
+    },
+    {
+        "name": "Possession",
+        "description": "Permet à l'utilisateur de prendre le contrôle d'une créature proche, son corps devenant comateux",
+        "value": "Contrôle une créature pendant 1 minute (jet de sauvegarde de Sagesse DD 15)"
+    },
+    {
+        "name": "Veille du hibou",
+        "description": "Rend l'utilisateur sans besoin de sommeil pendant un moment",
+        "value": "Pas besoin de dormir pendant 24 heures"
+    },
+    {
+        "name": "Vol du faucon",
+        "description": "Permet à l'utilisateur de voler",
+        "value": "Vol pendant 10 minutes"
+    },
+    {
+        "name": "Paix",
+        "description": "Rend l'utilisateur très calme et incapable de nuire aux autres",
+        "value": "Incapacité d'attaquer ou de nuire pendant 1 heure"
+    },
+    {
+        "name": "Réjuvénation",
+        "description": "Guérit une seule cicatrice ou blessure grave sur l'utilisateur, comme un bras manquant",
+        "value": "Guérit une blessure permanente"
+    },
+    {
+        "name": "Vérité du sphinx",
+        "description": "Force l'utilisateur à dire la vérité",
+        "value": "Incapacité de mentir pendant 1 heure"
+    },
+    {
+        "name": "Langue de serpent",
+        "description": "Force l'utilisateur à ne pouvoir que mentir",
+        "value": "Incapacité de dire la vérité pendant 1 heure"
+    },
+    {
+        "name": "Navigation",
+        "description": "Rend l'utilisateur incapable de se perdre et lui permet de trouver ce dont il a besoin",
+        "value": "Impossible de se perdre et trouve le chemin le plus court pendant 1 heure"
+    },
+    {
+        "name": "Griffes d'horreur",
+        "description": "Les mains de l'utilisateur deviennent des lames tranchantes",
+        "value": "Les mains infligent 1d8 dégâts tranchants pendant 10 minutes"
+    },
+    {
+        "name": "Schadenfreude",
+        "description": "Fait que les ennemis subissent des dégâts lorsqu'ils en infligent à l'utilisateur",
+        "value": "Les ennemis subissent la moitié des dégâts infligés à l'utilisateur pendant 1 minute"
+    },
+    {
+        "name": "Invisibilité",
+        "description": "Rend l'utilisateur invisible",
+        "value": "Invisibilité pendant 10 minutes"
+    },
+    {
+        "name": "Magie sauvage",
+        "description": "Accède à la magie sauvage, provoquant un effet absolument aléatoire",
+        "value": "Effet aléatoire de la table de magie sauvage"
+    },
+    {
+        "name": "Renommée",
+        "description": "Rend l'utilisateur plus célèbre",
+        "value": "+2 au Charisme dans les interactions sociales pendant 24 heures"
+    },
+    {
+        "name": "Marche de chèvre",
+        "description": "Rend l'utilisateur immunisé aux fatigues des longs voyages et aux intempéries",
+        "value": "Immunité à la fatigue due aux voyages et aux conditions météorologiques pendant 24 heures"
+    },
+    {
+        "name": "Ténacité de gargouille",
+        "description": "Augmente la constitution de l'utilisateur",
+        "value": "+2 à la Constitution pendant 1 heure"
+    },
+    {
+        "name": "Horloge atomique",
+        "description": "Permet à l'utilisateur de connaître l'heure et la date exactes",
+        "value": "Connaît l'heure et la date exactes en permanence"
+    },
+    {
+        "name": "Transmutation",
+        "description": "Permet à l'utilisateur de changer les propriétés de quelque chose",
+        "value": "Transforme un objet en un autre objet de même taille pendant 1 heure"
+    },
+    {
+        "name": "Peau de fer",
+        "description": "Transforme la peau de l'utilisateur en métal, lui conférant de nombreuses résistances",
+        "value": "Résistance aux dégâts physiques et +2 à la CA pendant 10 minutes"
+    },
+    {
+        "name": "Changement de sexe",
+        "description": "Change le sexe de l'utilisateur",
+        "value": "Changement de sexe pendant 24 heures"
+    },
+    {
+        "name": "Changement de race",
+        "description": "Change la race de l'utilisateur",
+        "value": "Changement de race pendant 24 heures"
+    },
+    {
+        "name": "Souffle musical",
+        "description": "Fait que l'utilisateur dit tout en chanson, et une musique féerique l'accompagne dans l'air",
+        "value": "Parle en chanson et attire l'attention pendant 1 heure"
+    },
+    {
+        "name": "Compréhension totale",
+        "description": "Rend l'utilisateur très intime avec une chose précise",
+        "value": "Aléatoire ou choisi. Connaissance approfondie d'un sujet spécifique pendant 1 heure"
+    },
+    {
+        "name": "Forme divisée",
+        "description": "L'utilisateur se transforme en plusieurs petites versions de lui-même et les contrôle toutes",
+        "value": "Divise en 1d4 versions miniatures (force -1 pour chaque miniature) pendant 10 minutes"
+    },
+    {
+        "name": "Saveur",
+        "description": "Rend tout délicieux ! Tout ce qui est mangé ou bu a un goût incroyable pendant 1 heure",
+        "value": ""
+    },
+    {
+        "name": "Scintillement",
+        "description": "Nettoie instantanément l'utilisateur et son équipement, les rendant aussi beaux que possible",
+        "value": "Nettoie et embellit l'utilisateur et son équipement pendant 1 heure"
+    },
+    {
+        "name": "Amour",
+        "description": "Fait tomber l'utilisateur et quelqu'un d'autre amoureux",
+        "value": "Charmé par une créature spécifique pendant 1 heure"
+    },
+    {
+        "name": "Poison",
+        "description": "Empoisonne l'utilisateur, l'affaiblissant",
+        "value": "Empoisonné pendant 1 heure (désavantage aux jets d'attaque et de sauvegarde)"
+    },
+    {
+        "name": "Renaissance",
+        "description": "Ressuscite l'utilisateur s'il meurt peu après avoir bu",
+        "value": "Ressuscite avec 1 PV si mort dans les 10 minutes"
+    },
+    {
+        "name": "Forme élémentaire",
+        "description": "Transforme l'utilisateur en une forme élémentaire correspondant à sa personnalité",
+        "value": "Transformation en élémentaire (feu, eau, terre, air) pendant 10 minutes"
+    },
+    {
+        "name": "Forme véritable",
+        "description": "Transforme l'utilisateur en une créature familière similaire à sa personnalité",
+        "value": "Transformation en familier (chat, chien, oiseau, etc.) pendant 1 heure"
+    },
+    {
+        "name": "Toucher divin",
+        "description": "Donne à l'utilisateur une connexion sacrée à sa divinité ou à une entité démoniaque",
+        "value": "Avantage sur les jets liés à la religion et aux soins pendant 1d6 heures"
+    },
+    {
+        "name": "Antidépresseur",
+        "description": "Améliore l'humeur de l'utilisateur et réduit les effets de peur ou de tristesse",
+        "value": "Immunité à la peur et au désespoir pendant 1 heure"
+    },
+    {
+        "name": "Forme fantomatique",
+        "description": "Rend l'utilisateur intangible et capable de traverser les objets solides",
+        "value": "Intangibilité pendant 1 minute"
+    },
+    {
+        "name": "Compétence d'artisan",
+        "description": "Donne à l'utilisateur une grande habileté dans un art spécifique temporairement",
+        "value": "Compétence experte dans un art ou artisanat pendant 1 heure"
+    },
+    {
+        "name": "Forme divine",
+        "description": "Améliore toutes les statistiques de l'utilisateur temporairement",
+        "value": "+4 à toutes les caractéristiques pendant 10 minutes"
+    },
+    {
+        "name": "Armes bénies",
+        "description": "Les armes de l'utilisateur infligent des dégâts supplémentaires",
+        "value": "+1d8 dégâts radieux avec les armes pendant 10 minutes"
+    },
+    {
+        "name": "Euphorie",
+        "description": "Donne à l'utilisateur un sentiment de bonheur extrême et des visions hallucinatoires",
+        "value": "Avantage sur les jets de Charisme, désavantage sur la Perception, pendant 10 minutes"
+    },
+    {
+        "name": "Garde du corps",
+        "description": "Crée un garde du corps spectral temporaire obéissant aux ordres de l'utilisateur",
+        "value": "Invoque un garde spectral avec 20 PV pendant 10 minutes"
+    },
+    {
+        "name": "Babelfish",
+        "description": "Permet à l'utilisateur de parler n'importe quelle langue, mais sans la comprendre",
+        "value": "Capacité de parler toutes les langues pendant 1 heure"
+    },
+    {
+        "name": "Préservation",
+        "description": "Empêche tout ce sur quoi la potion est versée de pourrir ou se dégrader",
+        "value": "Conserve un objet ou de la nourriture pendant 1d6 jours"
+    },
+    {
+        "name": "Peur",
+        "description": "Rend l'utilisateur terrifié",
+        "value": "L'utilisateur est effrayé pendant 1 minute (test de sauvegarde de Sagesse pour résister)"
+    },
+    {
+        "name": "Vision nocturne",
+        "description": "Permet de voir dans l'obscurité comme en plein jour",
+        "value": "Vision dans l'obscurité jusqu'à 60 pieds pendant 8 heures"
+    },
+    {
+        "name": "Pistage",
+        "description": "Permet à l'utilisateur de traquer un ennemi avec précision",
+        "value": "Avantage sur les jets de Survie pour suivre des traces pendant 1 heure"
+    },
+    {
+        "name": "Panacée",
+        "description": "Guérit tous les effets de statut affectant l'utilisateur",
+        "value": "Supprime tous les états négatifs (poison, paralysie, maladie, etc.)"
+    }
+]

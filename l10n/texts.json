@@ -1,0 +1,64 @@
+{
+    "fr": {
+        "title": "Générateur de potions DnD",
+        "subtitle": "Toutes les potions n'ont pas d'étiquettes, et boire un liquide mystérieux pourrait s'avèrer très dangereux... Ou cela pourrait vous sauver la vie !",
+        "description": "Ce générateur permet aux MJs de créer des potions aléatoires et procédurales avec des effets incroyables pour leurs joueurs. Amusez-vous bien !",
+        "ingredients_number": "Nombre d'ingrédients",
+        "mode": "Mode",
+        "generation": "Génération",
+        "selection": "Sélection",
+        "potions_number": "Nombre de potions",
+        "generate_button": "Générer une potion",
+        "custom_title": "Titre personnalisé (optionnel)",
+        "footer": {
+            "developed_by": "Ce generateur est développé par [Nicolas Bouchaib - Datalgo](https://x.com/nicolasbchb)",
+            "credits": "Les caractéristiques des potions sont basées sur le super travail d'[Olirant](https://www.reddit.com/user/olirant/) dans ce [post Reddit](https://www.reddit.com/r/DnDBehindTheScreen/comments/4btnkc/random_potions_table/)."
+        },
+        "potion_attributes": {
+            "type": "Type de potion",
+            "container": "Conteneur",
+            "main_appearance": "Apparence principale",
+            "with_appearance": "Apparence avec",
+            "texture": "Texture",
+            "taste": "Gout",
+            "smell": "Odeur",
+            "label": "Etiquette",
+            "intensity": "Intensité",
+            "main_effects": "Effets principaux",
+            "toxicity": "Toxicité",
+            "side_effects": "Effets secondaires",
+            "special": "Spécial"
+        }
+    },
+    "en": {
+        "title": "DnD Potion Generator",
+        "subtitle": "Not all potions are labeled, and drinking a mysterious liquid could be very dangerous... Or it could save your life!",
+        "description": "This generator allows DMs to create random and procedural potions with amazing effects for their players. Have fun!",
+        "ingredients_number": "Number of ingredients",
+        "mode": "Mode",
+        "generation": "Generation",
+        "selection": "Selection",
+        "potions_number": "Number of potions",
+        "generate_button": "Generate a potion",
+        "custom_title": "Custom title (optional)",
+        "footer": {
+            "developed_by": "This generator is developed by [Nicolas Bouchaib - Datalgo](https://x.com/nicolasbchb)",
+            "credits": "Potion characteristics are based on the great work of [Olirant](https://www.reddit.com/user/olirant/) in this [Reddit post](https://www.reddit.com/r/DnDBehindTheScreen/comments/4btnkc/random_potions_table/)."
+        },
+        "potion_attributes": {
+            "type": "Potion type",
+            "container": "Container",
+            "main_appearance": "Main appearance",
+            "with_appearance": "With appearance",
+            "texture": "Texture",
+            "taste": "Taste",
+            "smell": "Smell",
+            "label": "Label",
+            "intensity": "Intensity",
+            "main_effects": "Main effects",
+            "toxicity": "Toxicity",
+            "side_effects": "Side effects",
+            "special": "Special"
+        }
+    }
+}

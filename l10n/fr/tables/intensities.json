@@ -1,0 +1,17 @@
+[
+    {
+        "name": "",
+        "description": "Effet de puissance normale",
+        "nb_effects": 1
+    },
+    {
+        "name": "Puissant",
+        "description": "Double effet",
+        "nb_effects": 2
+    },
+    {
+        "name": "Légendaire",
+        "description": "Triple effet",
+        "nb_effects": 3
+    }
+]

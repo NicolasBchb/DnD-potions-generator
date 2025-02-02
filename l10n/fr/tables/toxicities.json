@@ -1,0 +1,22 @@
+[
+    {
+        "name": "",
+        "description": "Sans effet secondaire.",
+        "nb_effects": 0
+    },
+    {
+        "name": "Périmé",
+        "description": "Effet secondaire classique.",
+        "nb_effects": 1
+    },
+    {
+        "name": "Frelaté",
+        "description": "Effet secondaire double.",
+        "nb_effects": 2
+    },
+    {
+        "name": "Maudit",
+        "description": "Effet secondaire triple.",
+        "nb_effects": 3
+    }
+]

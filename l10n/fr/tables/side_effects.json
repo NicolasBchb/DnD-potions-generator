@@ -1,0 +1,394 @@
+[
+    {
+        "name": "Narcolepsie",
+        "description": "Endort l'utilisateur pendant 1d4 heures"
+    },
+    {
+        "name": "Loup-garou intérieur",
+        "description": "Pousse rapide de poils sur tout le corps pendant 1d6 heures"
+    },
+    {
+        "name": "Larmes de sang",
+        "description": "Saignement des yeux pendant 1d4 rounds"
+    },
+    {
+        "name": "Cauchemar éveillé",
+        "description": "Hallucinations vives pendant 1d10 minutes"
+    },
+    {
+        "name": "Prémonition macabre",
+        "description": "Flashbacks de votre propre mort éventuelle"
+    },
+    {
+        "name": "Épiderme fracturé",
+        "description": "La peau se fissure et apparaît déformée pendant 1d4 heures"
+    },
+    {
+        "name": "Taches du destin",
+        "description": "Des taches apparaissent sur la peau pendant 1d6 jours"
+    },
+    {
+        "name": "Tempête intestinale",
+        "description": "Diarrhée pendant 1d4 heures"
+    },
+    {
+        "name": "Vague nauséabonde",
+        "description": "Vomissements pendant 1d4 rounds"
+    },
+    {
+        "name": "Brouillard oculaire",
+        "description": "Vision floue pendant 1d6 rounds"
+    },
+    {
+        "name": "Voile des ténèbres",
+        "description": "Cécité pendant 1d4 rounds"
+    },
+    {
+        "name": "Silence absolu",
+        "description": "Surdité pendant 1d4 rounds"
+    },
+    {
+        "name": "Langue scellée",
+        "description": "Mutisme pendant 1d6 rounds"
+    },
+    {
+        "name": "Hémorragie fatale",
+        "description": "Perte de santé due à un saignement rapide (1d6 dégâts par round pendant 1d4 rounds)"
+    },
+    {
+        "name": "Accent maudit",
+        "description": "Un accent horrible soudain pendant 1d6 heures"
+    },
+    {
+        "name": "Danse compulsive",
+        "description": "Une envie irrésistible de danser pendant 1d4 rounds"
+    },
+    {
+        "name": "Chuchotements infernaux",
+        "description": "Entendre des démons pendant 1d6 rounds"
+    },
+    {
+        "name": "Vertige persistant",
+        "description": "Perte d'équilibre pendant 1d4 rounds"
+    },
+    {
+        "name": "Goût de terre",
+        "description": "Tout a un goût de terre pendant 1d6 heures"
+    },
+    {
+        "name": "Fontaine buccale",
+        "description": "Salivation excessive pendant 1d4 rounds"
+    },
+    {
+        "name": "Esprit embrumé",
+        "description": "Perte d'intelligence (-1d4 à l'INT) pendant 1d6 heures"
+    },
+    {
+        "name": "Faiblesse musculaire",
+        "description": "Perte de force (-1d4 à la FOR) pendant 1d6 heures"
+    },
+    {
+        "name": "Lenteur maladive",
+        "description": "Perte de vitesse (-1d4 à la DEX) pendant 1d6 heures"
+    },
+    {
+        "name": "Charme brisé",
+        "description": "Perte de charisme (-1d4 au CHA) pendant 1d6 heures"
+    },
+    {
+        "name": "Euphorie soudaine",
+        "description": "Bonheur authentique pendant 1d6 heures"
+    },
+    {
+        "name": "Faim vorace",
+        "description": "Faim extrême"
+    },
+    {
+        "name": "Soif ardente",
+        "description": "Soif extrême"
+    },
+    {
+        "name": "Souffle coupé",
+        "description": "Difficultés à respirer pendant 1d4 rounds"
+    },
+    {
+        "name": "Moustache magique",
+        "description": "Moustache soudaine pendant 1d6 heures"
+    },
+    {
+        "name": "Venin insidieux",
+        "description": "Empoisonnement (1d6 dégâts de poison par round pendant 1d4 rounds)"
+    },
+    {
+        "name": "Statue vivante",
+        "description": "Pétrification pendant 1d4 rounds"
+    },
+    {
+        "name": "Tournis persistant",
+        "description": "Étourdissement pendant 1d4 rounds"
+    },
+    {
+        "name": "Enracinement",
+        "description": "Immobilisation pendant 1d4 rounds"
+    },
+    {
+        "name": "Passion dévorante",
+        "description": "Libido augmentée pendant 1d6 heures"
+    },
+    {
+        "name": "Nervosité extrême",
+        "description": "Agitation nerveuse pendant 1d4 rounds"
+    },
+    {
+        "name": "Démangeaisons infernales",
+        "description": "Démangeaisons pendant 1d6 heures"
+    },
+    {
+        "name": "Peau marquée",
+        "description": "Éruptions cutanées pendant 1d6 jours"
+    },
+    {
+        "name": "Appel des ours",
+        "description": "Attire les ours pendant 1d6 heures"
+    },
+    {
+        "name": "Boue éternelle",
+        "description": "Recouvert de boue magiquement pendant 1d4 heures"
+    },
+    {
+        "name": "Pestilence nauséabonde",
+        "description": "Odeur horrible pendant 1d6 heures"
+    },
+    {
+        "name": "Crâne dégarni",
+        "description": "Calvitie soudaine"
+    },
+    {
+        "name": "Ballonnement magique",
+        "description": "Gonflement du corps pendant 1d4 heures"
+    },
+    {
+        "name": "Objet perdu",
+        "description": "Perte d'un objet aléatoire"
+    },
+    {
+        "name": "Malédiction imprévue",
+        "description": "Malédiction aléatoire pendant 1d6 jours"
+    },
+    {
+        "name": "Choc douloureux",
+        "description": "Dégâts (1d6 dégâts immédiats)"
+    },
+    {
+        "name": "Vulnérabilité magique",
+        "description": "Faiblesse à un type de dégâts magiques pendant 1d6 heures"
+    },
+    {
+        "name": "Fragilité physique",
+        "description": "Faiblesse aux dégâts physiques pendant 1d6 heures"
+    },
+    {
+        "name": "Culpabilité écrasante",
+        "description": "Sentiments de culpabilité pendant 1d6 heures"
+    },
+    {
+        "name": "Angoisse persistante",
+        "description": "Sentiments d'anxiété pendant 1d6 heures"
+    },
+    {
+        "name": "Honte profonde",
+        "description": "Sentiments de honte pendant 1d6 heures"
+    },
+    {
+        "name": "Éternuements magiques",
+        "description": "Éternuements incontrôlables pendant 1d4 rounds"
+    },
+    {
+        "name": "Larmes amères",
+        "description": "Pleurs incontrôlables pendant 1d4 rounds"
+    },
+    {
+        "name": "Chant héroïque",
+        "description": "Besoin de chanter de la musique héroïque pendant 1d6 rounds"
+    },
+    {
+        "name": "Câlins forcés",
+        "description": "Envie de faire des câlins pendant 1d6 rounds"
+    },
+    {
+        "name": "Doigts agiles",
+        "description": "Kleptomanie pendant 1d6 heures"
+    },
+    {
+        "name": "Rots tonitruants",
+        "description": "Rots incontrôlables pendant 1d4 rounds"
+    },
+    {
+        "name": "Nez bouché",
+        "description": "Perte d'odorat pendant 1d6 heures"
+    },
+    {
+        "name": "Nuits blanches",
+        "description": "Insomnie pendant 1d6 heures"
+    },
+    {
+        "name": "Ombre de la paranoïa",
+        "description": "Paranoïa pendant 1d6 heures"
+    },
+    {
+        "name": "Étoile filante inversée",
+        "description": "Malchance (-1d4 aux jets de dés) pendant 1d6 heures"
+    },
+    {
+        "name": "Imps maléfiques",
+        "description": "Invocation d'imps qui veulent vous tuer (1d4 imps)"
+    },
+    {
+        "name": "Essaim furieux",
+        "description": "Invocation d'abeilles en colère (1d6 abeilles)"
+    },
+    {
+        "name": "Peur irrationnelle",
+        "description": "Peur de quelque chose pendant 1d6 heures"
+    },
+    {
+        "name": "Folie passagère",
+        "description": "Folie temporaire pendant 1d6 rounds"
+    },
+    {
+        "name": "Sérénité totale",
+        "description": "Relaxation totale pendant 1d6 heures"
+    },
+    {
+        "name": "Sens exacerbés",
+        "description": "Appréciation accrue des couleurs et des sons pendant 1d6 heures"
+    },
+    {
+        "name": "Voyage psychédélique",
+        "description": "Trip intense pendant 1d6 rounds"
+    },
+    {
+        "name": "Désir brûlant",
+        "description": "Désir douloureux pendant 1d6 rounds"
+    },
+    {
+        "name": "Confiance excessive",
+        "description": "Confiance en soi augmentée pendant 1d6 heures"
+    },
+    {
+        "name": "Témérité",
+        "description": "Imprudence pendant 1d6 heures"
+    },
+    {
+        "name": "Colère noire",
+        "description": "Rage incontrôlable pendant 1d6 rounds"
+    },
+    {
+        "name": "Mélancolie profonde",
+        "description": "Tristesse intense pendant 1d6 heures"
+    },
+    {
+        "name": "Tourbillon mental",
+        "description": "Vertiges pendant 1d4 rounds"
+    },
+    {
+        "name": "Douleur fulgurante",
+        "description": "Douleur intense (1d6 dégâts)"
+    },
+    {
+        "name": "Esprit hanté",
+        "description": "Possession légère pendant 1d6 rounds"
+    },
+    {
+        "name": "Allergie cruelle",
+        "description": "Réaction allergique à votre nourriture préférée pendant 1d6 heures"
+    },
+    {
+        "name": "Identité volée",
+        "description": "Croyance forte que vous êtes quelqu'un d'autre pendant 1d6 heures"
+    },
+    {
+        "name": "Dette imprévue",
+        "description": "Dette soudaine (perte de 1d6 x 10 pièces d'or)"
+    },
+    {
+        "name": "Humeur de grognon",
+        "description": "Grincheux pendant 1d6 heures"
+    },
+    {
+        "name": "Spasmes incontrôlables",
+        "description": "Spasmes musculaires pendant 1d4 rounds"
+    },
+    {
+        "name": "Ballonnement magique",
+        "description": "Sensation de ballonnement pendant 1d6 heures"
+    },
+    {
+        "name": "Rhume magique",
+        "description": "Rhume pendant 1d6 heures"
+    },
+    {
+        "name": "Fièvre ardente",
+        "description": "Fièvre pendant 1d6 heures"
+    },
+    {
+        "name": "Légèreté étrange",
+        "description": "Devenir étrangement léger (réduction de poids de 50%) pendant 1d6 heures"
+    },
+    {
+        "name": "Affaiblissement général",
+        "description": "Faiblesse générale (-1d4 à toutes les caractéristiques) pendant 1d6 heures"
+    },
+    {
+        "name": "Rage de combat",
+        "description": "Envie de combattre pendant 1d6 rounds"
+    },
+    {
+        "name": "Amitié compulsive",
+        "description": "Besoin de se faire des amis pendant 1d6 heures"
+    },
+    {
+        "name": "Nausées persistantes",
+        "description": "Nausées pendant 1d4 rounds"
+    },
+    {
+        "name": "Montagnes russes émotionnelles",
+        "description": "Sautes d'humeur pendant 1d6 heures"
+    },
+    {
+        "name": "Dépendance",
+        "description": "Addiction à la potion pendant 1d6 jours"
+    },
+    {
+        "name": "Soif de boisson",
+        "description": "Besoin impérieux de boire de l'alcool pendant 1d6 heures"
+    },
+    {
+        "name": "Spiritueux",
+        "description": "Ivresse pendant 1d6 heures"
+    },
+    {
+        "name": "Toux incontrôlable",
+        "description": "Toux incontrôlable pendant 1d4 rounds"
+    },
+    {
+        "name": "Verbiage incessant",
+        "description": "Bavardage incontrôlable pendant 1d6 rounds"
+    },
+    {
+        "name": "Douleurs sourdes",
+        "description": "Douleurs légères (1d4 dégâts)"
+    },
+    {
+        "name": "Arrière-goût maudit",
+        "description": "Mauvais goût dans la bouche pendant 1d6 heures"
+    },
+    {
+        "name": "Vertiges",
+        "description": "Vertiges pendant 1d4 rounds"
+    },
+    {
+        "name": "Fou rire",
+        "description": "Rires incontrôlables pendant 1d6 rounds"
+    }
+]

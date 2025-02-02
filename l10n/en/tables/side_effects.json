@@ -1,0 +1,394 @@
+[
+    {
+        "name": "Narcolepsy",
+        "description": "User falls asleep for 1d4 hours"
+    },
+    {
+        "name": "Inner Werewolf",
+        "description": "Rapid hair growth all over the body for 1d6 hours"
+    },
+    {
+        "name": "Blood Tears",
+        "description": "Eyes bleed for 1d4 rounds"
+    },
+    {
+        "name": "Waking Nightmare",
+        "description": "Vivid hallucinations for 1d10 minutes"
+    },
+    {
+        "name": "Grim Premonition",
+        "description": "Flashbacks of your eventual death"
+    },
+    {
+        "name": "Fractured Skin",
+        "description": "Skin cracks and appears deformed for 1d4 hours"
+    },
+    {
+        "name": "Fate Spots",
+        "description": "Spots appear on skin for 1d6 days"
+    },
+    {
+        "name": "Intestinal Storm",
+        "description": "Diarrhea for 1d4 hours"
+    },
+    {
+        "name": "Nauseous Wave",
+        "description": "Vomiting for 1d4 rounds"
+    },
+    {
+        "name": "Eye Fog",
+        "description": "Blurred vision for 1d6 rounds"
+    },
+    {
+        "name": "Darkness Veil",
+        "description": "Blindness for 1d4 rounds"
+    },
+    {
+        "name": "Absolute Silence",
+        "description": "Deafness for 1d4 rounds"
+    },
+    {
+        "name": "Sealed Tongue",
+        "description": "Muteness for 1d6 rounds"
+    },
+    {
+        "name": "Fatal Hemorrhage",
+        "description": "Health loss due to rapid bleeding (1d6 damage per round for 1d4 rounds)"
+    },
+    {
+        "name": "Cursed Accent",
+        "description": "Sudden horrible accent for 1d6 hours"
+    },
+    {
+        "name": "Compulsive Dance",
+        "description": "Irresistible urge to dance for 1d4 rounds"
+    },
+    {
+        "name": "Infernal Whispers",
+        "description": "Hearing demons for 1d6 rounds"
+    },
+    {
+        "name": "Vertigo",
+        "description": "Loss of balance for 1d4 rounds"
+    },
+    {
+        "name": "Earth Taste",
+        "description": "Everything tastes like dirt for 1d6 hours"
+    },
+    {
+        "name": "Mouth Fountain",
+        "description": "Excessive salivation for 1d4 rounds"
+    },
+    {
+        "name": "Foggy Mind",
+        "description": "Loss of intelligence (-1d4 to INT) for 1d6 hours"
+    },
+    {
+        "name": "Muscle Weakness",
+        "description": "Loss of strength (-1d4 to STR) for 1d6 hours"
+    },
+    {
+        "name": "Sickly Slowness",
+        "description": "Loss of speed (-1d4 to DEX) for 1d6 hours"
+    },
+    {
+        "name": "Broken Charm",
+        "description": "Loss of charisma (-1d4 to CHA) for 1d6 hours"
+    },
+    {
+        "name": "Sudden Euphoria",
+        "description": "Genuine happiness for 1d6 hours"
+    },
+    {
+        "name": "Voracious Hunger",
+        "description": "Extreme hunger"
+    },
+    {
+        "name": "Burning Thirst",
+        "description": "Extreme thirst"
+    },
+    {
+        "name": "Breathless",
+        "description": "Difficulty breathing for 1d4 rounds"
+    },
+    {
+        "name": "Magic Mustache",
+        "description": "Sudden mustache for 1d6 hours"
+    },
+    {
+        "name": "Insidious Venom",
+        "description": "Poisoning (1d6 poison damage per round for 1d4 rounds)"
+    },
+    {
+        "name": "Living Statue",
+        "description": "Petrification for 1d4 rounds"
+    },
+    {
+        "name": "Persistent Dizziness",
+        "description": "Stunned for 1d4 rounds"
+    },
+    {
+        "name": "Rooting",
+        "description": "Immobilization for 1d4 rounds"
+    },
+    {
+        "name": "Consuming Passion",
+        "description": "Increased libido for 1d6 hours"
+    },
+    {
+        "name": "Extreme Nervousness",
+        "description": "Nervous agitation for 1d4 rounds"
+    },
+    {
+        "name": "Infernal Itching",
+        "description": "Itching for 1d6 hours"
+    },
+    {
+        "name": "Marked Skin",
+        "description": "Skin rashes for 1d6 days"
+    },
+    {
+        "name": "Bear Call",
+        "description": "Attracts bears for 1d6 hours"
+    },
+    {
+        "name": "Eternal Mud",
+        "description": "Magically covered in mud for 1d4 hours"
+    },
+    {
+        "name": "Nauseating Pestilence",
+        "description": "Horrible smell for 1d6 hours"
+    },
+    {
+        "name": "Bare Skull",
+        "description": "Sudden baldness"
+    },
+    {
+        "name": "Magic Bloating",
+        "description": "Body swelling for 1d4 hours"
+    },
+    {
+        "name": "Lost Object",
+        "description": "Loss of a random object"
+    },
+    {
+        "name": "Unexpected Curse",
+        "description": "Random curse for 1d6 days"
+    },
+    {
+        "name": "Painful Shock",
+        "description": "Damage (1d6 immediate damage)"
+    },
+    {
+        "name": "Magical Vulnerability",
+        "description": "Weakness to a type of magical damage for 1d6 hours"
+    },
+    {
+        "name": "Physical Fragility",
+        "description": "Weakness to physical damage for 1d6 hours"
+    },
+    {
+        "name": "Crushing Guilt",
+        "description": "Feelings of guilt for 1d6 hours"
+    },
+    {
+        "name": "Persistent Anxiety",
+        "description": "Feelings of anxiety for 1d6 hours"
+    },
+    {
+        "name": "Deep Shame",
+        "description": "Feelings of shame for 1d6 hours"
+    },
+    {
+        "name": "Magic Sneezing",
+        "description": "Uncontrollable sneezing for 1d4 rounds"
+    },
+    {
+        "name": "Bitter Tears",
+        "description": "Uncontrollable crying for 1d4 rounds"
+    },
+    {
+        "name": "Heroic Song",
+        "description": "Need to sing heroic music for 1d6 rounds"
+    },
+    {
+        "name": "Forced Hugs",
+        "description": "Urge to hug for 1d6 rounds"
+    },
+    {
+        "name": "Nimble Fingers",
+        "description": "Kleptomania for 1d6 hours"
+    },
+    {
+        "name": "Thunderous Burps",
+        "description": "Uncontrollable burping for 1d4 rounds"
+    },
+    {
+        "name": "Stuffed Nose",
+        "description": "Loss of smell for 1d6 hours"
+    },
+    {
+        "name": "Sleepless Nights",
+        "description": "Insomnia for 1d6 hours"
+    },
+    {
+        "name": "Shadow of Paranoia",
+        "description": "Paranoia for 1d6 hours"
+    },
+    {
+        "name": "Inverse Shooting Star",
+        "description": "Bad luck (-1d4 to dice rolls) for 1d6 hours"
+    },
+    {
+        "name": "Evil Imps",
+        "description": "Summons imps that want to kill you (1d4 imps)"
+    },
+    {
+        "name": "Furious Swarm",
+        "description": "Summons angry bees (1d6 bees)"
+    },
+    {
+        "name": "Irrational Fear",
+        "description": "Fear of something for 1d6 hours"
+    },
+    {
+        "name": "Passing Madness",
+        "description": "Temporary madness for 1d6 rounds"
+    },
+    {
+        "name": "Total Serenity",
+        "description": "Complete relaxation for 1d6 hours"
+    },
+    {
+        "name": "Enhanced Senses",
+        "description": "Increased appreciation of colors and sounds for 1d6 hours"
+    },
+    {
+        "name": "Psychedelic Journey",
+        "description": "Intense trip for 1d6 rounds"
+    },
+    {
+        "name": "Burning Desire",
+        "description": "Painful desire for 1d6 rounds"
+    },
+    {
+        "name": "Excessive Confidence",
+        "description": "Increased self-confidence for 1d6 hours"
+    },
+    {
+        "name": "Recklessness",
+        "description": "Recklessness for 1d6 hours"
+    },
+    {
+        "name": "Black Rage",
+        "description": "Uncontrollable rage for 1d6 rounds"
+    },
+    {
+        "name": "Deep Melancholy",
+        "description": "Intense sadness for 1d6 hours"
+    },
+    {
+        "name": "Mental Whirlwind",
+        "description": "Dizziness for 1d4 rounds"
+    },
+    {
+        "name": "Searing Pain",
+        "description": "Intense pain (1d6 damage)"
+    },
+    {
+        "name": "Haunted Spirit",
+        "description": "Light possession for 1d6 rounds"
+    },
+    {
+        "name": "Cruel Allergy",
+        "description": "Allergic reaction to your favorite food for 1d6 hours"
+    },
+    {
+        "name": "Stolen Identity",
+        "description": "Strong belief that you are someone else for 1d6 hours"
+    },
+    {
+        "name": "Unexpected Debt",
+        "description": "Sudden debt (loss of 1d6 x 10 gold pieces)"
+    },
+    {
+        "name": "Grumpy Mood",
+        "description": "Grumpy for 1d6 hours"
+    },
+    {
+        "name": "Uncontrollable Spasms",
+        "description": "Muscle spasms for 1d4 rounds"
+    },
+    {
+        "name": "Magical Bloating",
+        "description": "Bloating sensation for 1d6 hours"
+    },
+    {
+        "name": "Magic Cold",
+        "description": "Cold for 1d6 hours"
+    },
+    {
+        "name": "Burning Fever",
+        "description": "Fever for 1d6 hours"
+    },
+    {
+        "name": "Strange Lightness",
+        "description": "Become strangely light (50% weight reduction) for 1d6 hours"
+    },
+    {
+        "name": "General Weakening",
+        "description": "General weakness (-1d4 to all ability scores) for 1d6 hours"
+    },
+    {
+        "name": "Combat Rage",
+        "description": "Urge to fight for 1d6 rounds"
+    },
+    {
+        "name": "Compulsive Friendship",
+        "description": "Need to make friends for 1d6 hours"
+    },
+    {
+        "name": "Persistent Nausea",
+        "description": "Nausea for 1d4 rounds"
+    },
+    {
+        "name": "Emotional Rollercoaster",
+        "description": "Mood swings for 1d6 hours"
+    },
+    {
+        "name": "Addiction",
+        "description": "Potion addiction for 1d6 days"
+    },
+    {
+        "name": "Drink Thirst",
+        "description": "Urgent need to drink alcohol for 1d6 hours"
+    },
+    {
+        "name": "Spirits",
+        "description": "Drunkenness for 1d6 hours"
+    },
+    {
+        "name": "Uncontrollable Cough",
+        "description": "Uncontrollable coughing for 1d4 rounds"
+    },
+    {
+        "name": "Incessant Verbiage",
+        "description": "Uncontrollable chattering for 1d6 rounds"
+    },
+    {
+        "name": "Dull Pains",
+        "description": "Light pains (1d4 damage)"
+    },
+    {
+        "name": "Cursed Aftertaste",
+        "description": "Bad taste in mouth for 1d6 hours"
+    },
+    {
+        "name": "Vertigo",
+        "description": "Vertigo for 1d4 rounds"
+    },
+    {
+        "name": "Mad Laughter",
+        "description": "Uncontrollable laughter for 1d6 rounds"
+    }
+]

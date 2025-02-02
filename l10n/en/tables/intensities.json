@@ -1,0 +1,17 @@
+[
+    {
+        "name": "",
+        "description": "Normal power effect",
+        "nb_effects": 1
+    },
+    {
+        "name": "Strong",
+        "description": "Double effect",
+        "nb_effects": 2
+    },
+    {
+        "name": "Legendary",
+        "description": "Triple effect",
+        "nb_effects": 3
+    }
+]

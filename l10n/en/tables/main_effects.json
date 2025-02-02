@@ -1,0 +1,502 @@
+[
+    {
+        "name": "Healing",
+        "description": "It instantly regenerates some health when drank",
+        "value": "Regenerates 2d6+4 HP"
+    },
+    {
+        "name": "Vigor",
+        "description": "Gives temporary health when drank",
+        "value": "Gives 1d10 temporary HP for 1 hour"
+    },
+    {
+        "name": "Vitality",
+        "description": "It slowly regenerates health over a period of some hours",
+        "value": "Regenerates 1 HP per minute for 1 hour"
+    },
+    {
+        "name": "Might",
+        "description": "It gives a bonus to attack rolls after drinking",
+        "value": "+2 to attack rolls for 10 minutes"
+    },
+    {
+        "name": "Courage",
+        "description": "Gives immunity to fear and some temporary inspiration",
+        "value": "Immunity to fear and advantage on Wisdom saving throws for 1 hour"
+    },
+    {
+        "name": "Giant Strength",
+        "description": "It gives the user much more strength",
+        "value": "Strength becomes 25 for 1 minute"
+    },
+    {
+        "name": "Flame Resistance",
+        "description": "It gives resistance to fire damage",
+        "value": "Resistance to fire damage for 1 hour"
+    },
+    {
+        "name": "Cold Resistance",
+        "description": "It gives resistance to cold damage",
+        "value": "Resistance to cold damage for 1 hour"
+    },
+    {
+        "name": "Necro Resistance",
+        "description": "Gives resistance to necrotic damage",
+        "value": "Resistance to necrotic damage for 1 hour"
+    },
+    {
+        "name": "Radiant Resistance",
+        "description": "Gives resistance to radiant damage",
+        "value": "Resistance to radiant damage for 1 hour"
+    },
+    {
+        "name": "Stoneskin",
+        "description": "Gives resistance to martial damage",
+        "value": "Resistance to bludgeoning, piercing and slashing damage for 10 minutes"
+    },
+    {
+        "name": "Acid Resistance",
+        "description": "Gives resistance to acid",
+        "value": "Resistance to acid damage for 1 hour"
+    },
+    {
+        "name": "Lightning Resistance",
+        "description": "Gives resistance to lightning damage",
+        "value": "Resistance to lightning damage for 1 hour"
+    },
+    {
+        "name": "Succubus Charm",
+        "description": "Makes the drinker irresistible to nearby people",
+        "value": "Creatures within 30 feet must succeed on a Wisdom saving throw (DC 15) or be charmed for 1 hour"
+    },
+    {
+        "name": "Shielding",
+        "description": "Gives the user a magical shield of energy",
+        "value": "+2 to AC for 1 minute"
+    },
+    {
+        "name": "Flame Breath",
+        "description": "Gives the user fire breath for a short time",
+        "value": "Fire breath (4d6 damage, 15-foot cone) for 1 minute"
+    },
+    {
+        "name": "Growth",
+        "description": "Makes the user double in size",
+        "value": "Size doubles and attack damage increases by 1d4 for 10 minutes"
+    },
+    {
+        "name": "Shrinking",
+        "description": "Makes the user half in size",
+        "value": "Size is halved and AC increases by +2 for 10 minutes"
+    },
+    {
+        "name": "Comprehension",
+        "description": "Lets the user understand all languages",
+        "value": "Understands all languages for 1 hour"
+    },
+    {
+        "name": "Fertility",
+        "description": "Makes the user very fertile, almost certain to make a baby under its effects!",
+        "value": "Maximum fertility for 24 hours"
+    },
+    {
+        "name": "Intimidation",
+        "description": "Gives the user a huge booming voice that terrifies those around",
+        "value": "Creatures within 30 feet must succeed on a Charisma saving throw (DC 15) or be frightened for 1 minute"
+    },
+    {
+        "name": "Luck",
+        "description": "It gives the user a temporary boost to luck",
+        "value": "Advantage on dice rolls for 1 hour"
+    },
+    {
+        "name": "Mana",
+        "description": "Gives the user more magical power to cast with",
+        "value": "Regains 1d4 spell slots"
+    },
+    {
+        "name": "Arcane",
+        "description": "Gives the user more powerful spells",
+        "value": "Spells deal +2 damage for 1 hour"
+    },
+    {
+        "name": "Animal form",
+        "description": "Makes the user turn into a random animal",
+        "value": "Transform into an animal (CR 1 or less) for 1 hour"
+    },
+    {
+        "name": "Dreams",
+        "description": "Makes the user get lost in a hallucinary dream world of their perfect dream",
+        "value": "Hallucinations for 1 hour"
+    },
+    {
+        "name": "Nightmares",
+        "description": "Makes the user get lost in a hallucinary dream world of their worst nightmares",
+        "value": "Frightened and disoriented for 1 hour"
+    },
+    {
+        "name": "Stamina",
+        "description": "Gives the user more stamina and constitution",
+        "value": "+2 to Constitution for 1 hour"
+    },
+    {
+        "name": "Fleet foot",
+        "description": "Makes the user have more speed",
+        "value": "Speed increased by 10 feet for 1 hour"
+    },
+    {
+        "name": "Knowledge",
+        "description": "Increases the users intelligence temporarily",
+        "value": "+2 to Intelligence for 1 hour"
+    },
+    {
+        "name": "The Bard",
+        "description": "Increases the users Charisma temporarily",
+        "value": "+2 to Charisma for 1 hour"
+    },
+    {
+        "name": "Disguise",
+        "description": "Changes the users form to a disguised form of any race and appeance",
+        "value": "Transform into another appearance for 1 hour"
+    },
+    {
+        "name": "Feast",
+        "description": "Removes all hunger and thirst from the target",
+        "value": "Completely nourished and hydrated for 24 hours"
+    },
+    {
+        "name": "Youth",
+        "description": "Makes the user grow some years younger",
+        "value": "Reduces age by 1d10 years for 24 hours"
+    },
+    {
+        "name": "Age",
+        "description": "Makes the user grow some years older",
+        "value": "Increases age by 1d10 years for 24 hours"
+    },
+    {
+        "name": "Furnace",
+        "description": "Makes the user radiate with a damaging aura",
+        "value": "1d6 fire damage aura in 5-foot radius for 1 minute"
+    },
+    {
+        "name": "Eagle Sight",
+        "description": "Gives the user strong vision and a bonus to perception",
+        "value": "+5 to Perception and darkvision for 1 hour"
+    },
+    {
+        "name": "Health",
+        "description": "Cures all diseases and illnesses",
+        "value": "Cures all diseases and conditions"
+    },
+    {
+        "name": "Invulnerability",
+        "description": "Freezes the user in stasis that makes them immune to damage but they cannot move or act",
+        "value": "Immunity to damage but paralyzed for 1 minute"
+    },
+    {
+        "name": "Riddle me gone",
+        "description": "Gives the user the cure to a single riddle",
+        "value": "Solves one specific riddle"
+    },
+    {
+        "name": "Horrifying appearance",
+        "description": "Makes the user look more ugly for a time",
+        "value": "-2 to Charisma for 1 hour"
+    },
+    {
+        "name": "Beautiful appearance",
+        "description": "Makes the user appear more attractive for a time",
+        "value": "+2 to Charisma for 1 hour"
+    },
+    {
+        "name": "Swordsmanship",
+        "description": "Makes the user more effective and versatile with a blade",
+        "value": "+2 to attack rolls with melee weapons for 1 hour"
+    },
+    {
+        "name": "Bowmanship",
+        "description": "Makes the user more effective with a bow or ranged weapon",
+        "value": "+2 to attack rolls with ranged weapons for 1 hour"
+    },
+    {
+        "name": "Nymph Breath",
+        "description": "Gives water breathing",
+        "value": "Water breathing for 1 hour"
+    },
+    {
+        "name": "Midas",
+        "description": "Makes the user turn things to gold",
+        "value": "Turns one object to gold (up to 1 foot diameter) for 1 hour"
+    },
+    {
+        "name": "Berserker",
+        "description": "Makes the user rage with great strength",
+        "value": "Advantage on Strength checks and +2 to damage for 1 minute"
+    },
+    {
+        "name": "Utter Hatred",
+        "description": "Makes the user have bonuses against a particular type of enemy",
+        "value": "+2 to attack and damage rolls against a specific enemy type for 1 hour"
+    },
+    {
+        "name": "Oracle",
+        "description": "Lets the user divinate the future",
+        "value": "Can ask one question about the future and receive a vague answer"
+    },
+    {
+        "name": "Demonic Leech",
+        "description": "Heals a portion of all damage the user deals",
+        "value": "Heals 1d6 HP for every 10 damage dealt for 1 hour"
+    },
+    {
+        "name": "Fey Nature",
+        "description": "Lets the user become one with animals and nature around them",
+        "value": "Speak with animals and advantage on Nature checks for 1 hour"
+    },
+    {
+        "name": "Tracelessness",
+        "description": "Makes the user very hard to follow",
+        "value": "Advantage on Stealth checks and leaves no physical tracks for 1 hour"
+    },
+    {
+        "name": "Gracefulness",
+        "description": "Makes the user have a better acrobatics skill",
+        "value": "+5 to Acrobatics checks for 1 hour"
+    },
+    {
+        "name": "Goblin Climb",
+        "description": "Gives the user a bonus to climbing",
+        "value": "+5 to Athletics checks when climbing for 1 hour"
+    },
+    {
+        "name": "Dead Ringer",
+        "description": "Makes the user appear completely dead to all magic",
+        "value": "Appears dead to magical detection for 1 hour"
+    },
+    {
+        "name": "One Leafed Clover",
+        "description": "Gives the user worst luck",
+        "value": "Disadvantage on all dice rolls for 1 hour"
+    },
+    {
+        "name": "Possession",
+        "description": "Lets the user gain control of a nearby creature, their body comatosed while they do",
+        "value": "Control one creature for 1 minute (Wisdom save DC 15)"
+    },
+    {
+        "name": "Owls Wake",
+        "description": "Makes the user need no sleep for a time",
+        "value": "No need to sleep for 24 hours"
+    },
+    {
+        "name": "Hawks Flight",
+        "description": "Lets the user fly",
+        "value": "Flying for 10 minutes"
+    },
+    {
+        "name": "Peace",
+        "description": "Makes the user very calm and unable to harm others",
+        "value": "Unable to attack or harm for 1 hour"
+    },
+    {
+        "name": "Rejuvenation",
+        "description": "Heals a single scar or bad injury on the user such as a missing arm",
+        "value": "Heals one permanent injury"
+    },
+    {
+        "name": "Sphinxes Truth",
+        "description": "Makes the user tell the truth",
+        "value": "Unable to lie for 1 hour"
+    },
+    {
+        "name": "Serpent Tongue",
+        "description": "Makes the user only able to lie",
+        "value": "Unable to tell the truth for 1 hour"
+    },
+    {
+        "name": "Navigation",
+        "description": "Makes the user unable to get lost and find where they need",
+        "value": "Cannot get lost and finds shortest path for 1 hour"
+    },
+    {
+        "name": "Hook Horror",
+        "description": "The users hands become sharp weaponised blades",
+        "value": "Hands deal 1d8 slashing damage for 10 minutes"
+    },
+    {
+        "name": "Schaffensfreude",
+        "description": "Makes the enemies take damage as they deal it to the user",
+        "value": "Enemies take half the damage they deal to user for 1 minute"
+    },
+    {
+        "name": "Invisibility",
+        "description": "Makes the user invisible",
+        "value": "Invisibility for 10 minutes"
+    },
+    {
+        "name": "Wild magic",
+        "description": "Taps into wild magic making an absolutely random thing happen",
+        "value": "Random effect from the wild magic table"
+    },
+    {
+        "name": "Fame",
+        "description": "Makes the user more famous",
+        "value": "+2 to Charisma in social interactions for 24 hours"
+    },
+    {
+        "name": "Goats Trek",
+        "description": "Makes the user immune to the toils of long travels and bad weather",
+        "value": "Immunity to travel fatigue and weather conditions for 24 hours"
+    },
+    {
+        "name": "Gargoyle Toughness",
+        "description": "Increases the users constitution",
+        "value": "+2 to Constitution for 1 hour"
+    },
+    {
+        "name": "Atomic Clock",
+        "description": "Lets the user know the exact time and date",
+        "value": "Knows exact time and date permanently"
+    },
+    {
+        "name": "Transmutation",
+        "description": "Lets the user have the ability to change somethings properties",
+        "value": "Transform one object into another object of same size for 1 hour"
+    },
+    {
+        "name": "Iron Skin",
+        "description": "Turns the users skin to metal giving them many resistances",
+        "value": "Resistance to physical damage and +2 to AC for 10 minutes"
+    },
+    {
+        "name": "Sex Change",
+        "description": "Changes the users gender",
+        "value": "Gender change for 24 hours"
+    },
+    {
+        "name": "Race Change",
+        "description": "Changes the users race",
+        "value": "Race change for 24 hours"
+    },
+    {
+        "name": "Musical Breath",
+        "description": "Makes the user say everything in song, and fey music follows them in the air",
+        "value": "Speaks in song and draws attention for 1 hour"
+    },
+    {
+        "name": "Utter Understanding",
+        "description": "Makes the user know very intimately about one exact thing",
+        "value": "Random or chosen. Deep knowledge of one specific subject for 1 hour"
+    },
+    {
+        "name": "Split Form",
+        "description": "The user turns into multiple tiny versions of themselves and controls them all",
+        "value": "Splits into 1d4 miniature versions (strength -1 for each miniature) for 10 minutes"
+    },
+    {
+        "name": "Flavour",
+        "description": "Makes anything and everything taste amazing!",
+        "value": "Everything eaten or drunk tastes incredible for 1 hour"
+    },
+    {
+        "name": "Glimmer",
+        "description": "Makes the user and its gear instantly clean and as good looking as possible",
+        "value": "Cleans and beautifies user and equipment for 1 hour"
+    },
+    {
+        "name": "Love",
+        "description": "Makes the user and someone else fall in love",
+        "value": "Charmed by a specific creature for 1 hour"
+    },
+    {
+        "name": "Poison",
+        "description": "Poisons the user, weakening them",
+        "value": "Poisoned for 1 hour (disadvantage on attack rolls and saving throws)"
+    },
+    {
+        "name": "Rebirth",
+        "description": "Resurrects the user if they die soon after drinking",
+        "value": "Resurrects with 1 HP if died within 10 minutes"
+    },
+    {
+        "name": "Elemental form",
+        "description": "Turns the user to an elemental form relevant to their personality",
+        "value": "Transform into elemental (fire, water, earth, air) for 10 minutes"
+    },
+    {
+        "name": "True form",
+        "description": "Turns the user into a familiar like creature similar to their personality",
+        "value": "Transform into familiar (cat, dog, bird, etc.) for 1 hour"
+    },
+    {
+        "name": "Gods Touch",
+        "description": "Gives the user a holy connection to their god or fiendish deity",
+        "value": "Advantage on religion and healing rolls for 1d6 hours"
+    },
+    {
+        "name": "Antidepressant",
+        "description": "Improves the users mood and reduces effects of fear or sadness",
+        "value": "Immunity to fear and despair for 1 hour"
+    },
+    {
+        "name": "Ghostly Form",
+        "description": "Makes the user intangible and able to phase through objects",
+        "value": "Incorporeal for 1 minute"
+    },
+    {
+        "name": "Artisans Skill",
+        "description": "Gives the user skill in a particular art temporarily",
+        "value": "Expert proficiency in one art or craft for 1 hour"
+    },
+    {
+        "name": "Godly form",
+        "description": "Improves all stats",
+        "value": "+4 to all ability scores for 10 minutes"
+    },
+    {
+        "name": "Bless Weapon",
+        "description": "Makes the users weapons do more damage",
+        "value": "+1d8 radiant damage with weapons for 10 minutes"
+    },
+    {
+        "name": "Euphoria",
+        "description": "Makes the user feel amazing and trip out",
+        "value": "Advantage on Charisma checks, disadvantage on Perception, for 10 minutes"
+    },
+    {
+        "name": "Bodyguard",
+        "description": "Creates a spectral bodyguard for a short time who obeys orders",
+        "value": "Summons spectral guard with 20 HP for 10 minutes"
+    },
+    {
+        "name": "Babelfish",
+        "description": "Lets the user speak any language but not understand it",
+        "value": "Ability to speak all languages for 1 hour"
+    },
+    {
+        "name": "Preservation",
+        "description": "Stops whatever its poured on from rotting or degrading",
+        "value": "Preserves one object or food for 1d6 days"
+    },
+    {
+        "name": "Fear",
+        "description": "Makes the user terrified",
+        "value": "User is frightened for 1 minute (Wisdom save to resist)"
+    },
+    {
+        "name": "Night vision",
+        "description": "Gives the ability to see in the dark",
+        "value": "Darkvision up to 60 feet for 8 hours"
+    },
+    {
+        "name": "Tracking",
+        "description": "Lets the user track an enemy",
+        "value": "Advantage on Survival checks to track for 1 hour"
+    },
+    {
+        "name": "Cure-all",
+        "description": "Cures any status effects",
+        "value": "Removes all negative conditions (poison, paralysis, disease, etc.)"
+    }
+]

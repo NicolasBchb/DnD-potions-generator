@@ -1,0 +1,18 @@
+[
+    {
+        "name": "",
+        "description": "Pas d'effet spécial"
+    },
+    {
+        "name": "Fulgurant",
+        "description": "L'effet ne dure qu'un instant, mais son intensité est décuplée."
+    },
+    {
+        "name": "A retardement",
+        "description": "L'effet est retardé de 1d6 rounds en combat ou 1d20 minutes en dehors."
+    },
+    {
+        "name": "Éternel",
+        "description": "L'effet est permanent. Un sort 'Délivrance des malédictions' peut le supprimer."
+    }
+]
