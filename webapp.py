@@ -15,7 +15,7 @@ st.set_page_config(
 with open("l10n/texts.json", "r", encoding="utf-8") as f:
     texts = json.load(f)
 
-langue = st.sidebar.radio("Language", ["🇫🇷", "🇬🇧"], horizontal=True, label_visibility="hidden")
+langue = st.sidebar.radio("Language", ["🇫🇷", "🇬🇧"], horizontal=True, label_visibility="hidden", index=1)
 lang = "fr" if langue == "🇫🇷" else "en"
 t = texts[lang]  # Obtenir les textes pour la langue sélectionnée
 
@@ -77,16 +77,16 @@ if radio == t["generation"]:
             for _ in range(nb_potions):
                 potion = Potion(lang=lang)
                 potion.roll()
-                potion.design_potion(title_type=type_titre)
+                potion.design_potion(title_type=type_titre, export=True)
                 potion.save_potion_log(type_titre)
                 st.divider()
                 st.html(potion.html)
-                # st.download_button(
-                #     label="Télécharger",
-                #     data=open(f"potion_images/{potion.titre.replace(' ', '_')}.png", "rb").read(),
-                #     file_name=f"{potion.titre.replace(' ', '_')}.png",
-                #     mime="image/png"
-                # )
+                st.download_button(
+                    label="Télécharger",
+                    data=open(f"potion_images/{potion.titre.replace(' ', '_')}.png", "rb").read(),
+                    file_name=f"{potion.titre.replace(' ', '_')}.png",
+                    mime="image/png"
+                )
                 # Stocker les données de la potion dans le session state
                 st.session_state.fr_potions.append(potion)
 
@@ -95,13 +95,13 @@ if radio == t["generation"]:
             for potion in st.session_state.fr_potions:
                 st.divider()
                 st.html(potion.html)
-                # st.download_button(
-                #     label="Télécharger",
-                #     data=open(f"potion_images/{potion.titre.replace(' ', '_')}.png", "rb").read(),
-                #     file_name=f"{potion.titre.replace(' ', '_')}.png",
-                #     mime="image/png",
-                #     key=f"download_{potion.titre}"
-                # )
+                st.download_button(
+                    label="Télécharger",
+                    data=open(f"potion_images/{potion.titre.replace(' ', '_')}.png", "rb").read(),
+                    file_name=f"{potion.titre.replace(' ', '_')}.png",
+                    mime="image/png",
+                    key=f"download_{potion.titre}"
+                )
 else:
     st.divider()
 
@@ -200,19 +200,23 @@ else:
         )
 
     potion.design_potion(
-        title_type=titre_personnalise if titre_personnalise else "Procedural"
+        title_type=titre_personnalise if titre_personnalise else "Procedural",
+        export=True
     )
     st.divider()
     st.html(potion.html)
-    # generate_button = st.button("Générer")
-    # if generate_button:
-    # potion.save_potion_log("fr", ("Personnalisé" if titre_personnalise else "Procedural"))
-    # st.download_button(
-    #     label="Télécharger",
-    #     data=open(f"potion_images/{potion.titre.replace(' ', '_')}.png", "rb").read(),
-    #     file_name=f"{potion.titre.replace(' ', '_')}.png",
-    #     mime="image/png"
-    # )
+    generate_button = st.button("Générer")
+    if generate_button:
+        potion.design_potion(
+            title_type=titre_personnalise if titre_personnalise else "Procedural",
+            export=True
+        )
+        st.download_button(
+            label="Télécharger",
+            data=open(f"potion_images/{potion.titre.replace(' ', '_')}.png", "rb").read(),
+            file_name=f"{potion.titre.replace(' ', '_')}.png",
+            mime="image/png"
+        )
 
 st.sidebar.divider()
 st.sidebar.caption(t["footer"]["developed_by"])
